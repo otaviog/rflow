@@ -82,8 +82,8 @@ class NodeTest(unittest.TestCase):
             shutil.rmtree(str(db_path))
 
         with suppress(FileNotFoundError):
-            os.remove(HERE / "T1.pickle")
-            os.remove(HERE / "T2.pickle")
+            os.remove(str(HERE / "T1.pickle"))
+            os.remove(str(HERE / "T2.pickle"))
 
     def tearDown(self):
         self._clean()
