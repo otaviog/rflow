@@ -27,14 +27,14 @@ class T1(rflow.Interface):
     def evaluate(self, resource, v1):
         T1.eval_count += 1
         v = v1 * 100
-        with open(resource.filepath, 'wb') as stream:
+        with open(resource.filepath, "wb") as stream:
             pickle.dump(v, stream)
         return v
 
     def load(self):
         T1.load_count += 1
 
-        with open(self.resource.filepath, 'rb') as stream:
+        with open(self.resource.filepath, "rb") as stream:
             return pickle.load(stream)
 
 
@@ -45,31 +45,31 @@ class T2(rflow.Interface):
     def evaluate(self, resource, x2):
         T2.eval_count += 1
         v = x2 * 8
-        with open(resource.filepath, 'wb') as stream:
+        with open(resource.filepath, "wb") as stream:
             pickle.dump(v, stream)
         return v
 
     def load(self, resource):
         T2.load_count += 1
-        with open(resource.filepath, 'rb') as stream:
+        with open(resource.filepath, "rb") as stream:
             return pickle.load(stream)
 
 
 class NodeTest(unittest.TestCase):
     def setUp(self):
         with suppress(FileNotFoundError):
-            os.remove(HERE / 'T1.pickle')
-            os.remove(HERE / 'T2.pickle')
+            os.remove(HERE / "T1.pickle")
+            os.remove(HERE / "T2.pickle")
 
     def test_simple(self):
-        with rflow.begin_graph('reentrancy', HERE) as g:
+        with rflow.begin_graph("reentrancy", HERE) as g:
             g.t1 = T1()
             g.t1.args.v1 = 5
-            g.t1.resource = rflow.FSResource('T1.pickle')
+            g.t1.resource = rflow.FSResource("T1.pickle")
 
             g.t2 = T2()
             g.t2.args.x2 = g.t1
-            g.t2.resource = rflow.FSResource('T2.pickle')
+            g.t2.resource = rflow.FSResource("T2.pickle")
 
         # First call, all evals must be 1
         self.assertEqual(4000, g.t2.call())
@@ -96,5 +96,5 @@ class NodeTest(unittest.TestCase):
         self.assertEqual(1, T2.load_count)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

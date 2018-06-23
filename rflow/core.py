@@ -340,6 +340,7 @@ def begin_graph(graph_name, path):
     See the :class:`Graph` documentation for example use.
 
     """
+    path = str(path)
     graph = get_graph(graph_name, path)
     cur_dir = os.path.abspath(os.curdir)
     os.chdir(path)
@@ -365,6 +366,8 @@ def exists_graph(name, directory=None):
 
     if directory is None:
         directory = os.path.dirname(util.get_caller_filepath(1))
+    else:
+        directory = str(directory)
 
     return UID(os.path.abspath(directory), name) in _GRAPH_DICT
 
