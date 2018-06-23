@@ -25,7 +25,7 @@ class Shell(Interface):
 
     Attributes:
 
-        resource (:obj:`shaperetrieval.workflow.FSResource`): Generate
+        resource (:obj:`rflow.resource.FSResource`): Generate
          resource. None if no resource are generated.
 
         args.commands (List[str]): List of commands.
@@ -65,7 +65,7 @@ class Download(Interface):
 
         args.url (str): The URL to download the file.
 
-        resource (:obj:`shaperetrieval.workflow.FSResource`): The
+        resource (:obj:`rflow.resource.FSResource`): The
          generated file by the download. Required.
 
     """
@@ -178,14 +178,14 @@ class ShowMessageIfNotExists(Interface):
     def evaluate(self, resource, message):
         """Args:
 
-            resource (:obj:`shrkit.workflow.Resource`): Which resource
+            resource (:obj:`rflow.Resource`): Which resource
             to check.
 
             message (str): Message to display when the resource
             doesn't exists.
 
         Returns:
-            :obj:`shrkit.workflow.Resource`: The same given resource.
+            :obj:`rflow.Resource`: The same given resource.
         """
 
         if not resource.exists():
@@ -195,6 +195,6 @@ class ShowMessageIfNotExists(Interface):
 
     def load(self, resource):
         """Returns:
-            :obj:`shrkit.workflow.Resource`: The same given resource.
+            :obj:`rflow.Resource`: The same given resource.
         """
         return resource

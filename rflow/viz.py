@@ -69,7 +69,7 @@ def dag2dot(graph):
 
     Args:
 
-        graph (:obj:`shrkit.workflow.Graph`): Target graph.
+        graph (:obj:`rflow.core.Graph`): Target graph.
 
     Returns:
         :obj:`graphviz.Digraph`:

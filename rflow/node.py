@@ -53,7 +53,7 @@ class ReturnSelNodeLink(BaseNodeLink):
         """
         Args:
 
-            node (:obj:`shaperetrieval.workflow.BaseNode`): The
+            node (:obj:`rflow.common.BaseNode`): The
              wrapped node.
 
             idx (int): Which return value this instance's call method
@@ -188,7 +188,7 @@ class Node(BaseNode):
 
         Args:
 
-            node (:obj:shaperetrieval.workflow.BaseNode): The node
+            node (:obj:`rflow.common.BaseNode`): The node
              that'll be execute before than this one.
         """
 

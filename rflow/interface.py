@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import inspect
 from ._argument import ArgNamespace
 from .node import Node

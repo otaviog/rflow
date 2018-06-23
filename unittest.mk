@@ -4,6 +4,9 @@ about:
 all:
 	python -m unittest discover
 
+doctest:
+	python doc/doctest_runner.py
+
 node:
 	python -m unittest rflow._test.test_node
 

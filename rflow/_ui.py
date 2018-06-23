@@ -41,7 +41,7 @@ class ShellIO:
 
             policy (str): Policy type. Use "sys-exit" to quit the
              process or "raise-exp" to raise a
-             :obj:`shrkit.workflow.common.WorkflowError`. The later is
+             :obj:`rflow.common.WorkflowError`. The later is
              useful for unit-testing.
 
         """

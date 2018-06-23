@@ -50,17 +50,17 @@ class Graph:
 
     * :func:`get_graph` to get an existing graph.
 
-    * :func:`shrkit.workflow.command.open_graph` to open an existing one from
+    * :func:`rflow.command.open_graph` to open an existing one from
       a script file. The graphs are created by functions decorated
-      with :class:`shrkit.workflow.decorators.graph`.
+      with :class:`rflow.decorators.graph`.
 
     * :func:`begin_graph` to create a graph
       interactively
 
     Example:
 
-    >>> import shrkit.workflow
-    >>> class HelloNode(shrkit.workflow.Interface):
+    >>> import rflow
+    >>> class HelloNode(rflow.Interface):
     ...     def evaluate(self, message):
     ...         print(message)
     >>> with begin_graph("my_graph", '.') as g:
@@ -245,7 +245,7 @@ _GRAPH_DICT = {}
 
 def get_graph(name, directory=None, existing=False, overwrite=False):
     """Returns or creates a new graph. To open a graph from a existing
-    workflow script, see :func:`shrkit.command.open_graph`:
+    workflow script, see :func:`rflow.command.open_graph`:
 
     Args:
 
@@ -260,7 +260,7 @@ def get_graph(name, directory=None, existing=False, overwrite=False):
         overwrite (optional, bool): Pass `True` to clean any previous
          graph with the same name and directory.
 
-    Returns: (:obj:`shrkit.workflow.graph.Graph`): The graph instance.
+    Returns: (:obj:`rflow.graph.Graph`): The graph instance.
 
     Raises: (WorkflowError): If existing is `True` and the graph was
      not previously created. Or if the directory doesn't exists.
@@ -334,8 +334,8 @@ def exists_graph(name, directory=None):
 def get_all_graphs_nodes():
     """Get all nodes from all graphs.
 
-    Returns: Dict[:obj:`shrkit.workflow.graph.UID`:
-     :obj:`shrkit.workflow.graph.Node`]: All found nodes.
+    Returns: Dict[:obj:`rflow.graph.UID`:
+     :obj:`rflow.graph.Node`]: All found nodes.
 
     """
 
@@ -353,7 +353,7 @@ def get_graphs():
 
     Returns:
 
-        Dict[str: :obj:`shrkit.workflow.core`]
+        Dict[str: :obj:`rflow.core`]
 
         All graph instances.
     """

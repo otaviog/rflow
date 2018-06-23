@@ -76,18 +76,18 @@ def open_graph(directory, graph_name, wf_filename=WORKFLOW_DEFAULT_FILENAME):
          a file named by the `wf_filename` argument.
 
         graph_name (str): The graph's name to open, see
-         :func:`shrkit.workflow.decorators.graph`
+         :func:`rflow.decorators.graph`
 
         wf_filename (str): The workflow python script. Default is
          `"workflow.py"`.
 
     Returns:
 
-        :obj:`shrkit.workflow.core.Graph`: DAG object.
+        :obj:`rflow.core.Graph`: DAG object.
 
     Raises:
 
-        :obj:`shrkit.workflow.common.WorkflowError`: If the graph
+        :obj:`rflow.common.WorkflowError`: If the graph
          isn't found.
 
         `FileNotFoundError`: If the directory doesn't exists or if the
@@ -210,7 +210,7 @@ def main(argv=None):
 
     Generates a command-line main for executing the graphs defined in
     the current source file. See the decorator
-    :class:`shrkit.workflow.decorators.graph` for how to define
+    :class:`rflow.decorators.graph` for how to define
     graphs. The default behavior is quit the process when an error is
     encountered.
 
@@ -236,7 +236,7 @@ def main(argv=None):
         $ srwf workflow1 run sub
 
     For passing custom arguments by command-line, use the class
-    :class:`shrkit.workflow.userargument.UserArgument`.
+    :class:`rflow.userargument.UserArgument`.
 
     Args:
 
@@ -256,7 +256,7 @@ def main(argv=None):
         return 1
 
     arg_parser = argparse.ArgumentParser(
-        description="Shrkit workflow manager",
+        description="RFlow workflow runner",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     arg_parser.add_argument(
         'graph', choices=[graph.name for graph in all_graphs])

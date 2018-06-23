@@ -1,4 +1,4 @@
-"""Utilities functions of shrkit.workflow module.
+"""Utilities functions of the module.
 """
 
 import sys

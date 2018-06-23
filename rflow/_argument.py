@@ -1,5 +1,5 @@
 """Argument handling. The instances are created by other modules of
-shaperetrieval.workflow.
+rflow.
 """
 
 import os
