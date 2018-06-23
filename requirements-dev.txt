@@ -4,3 +4,4 @@ sphinxcontrib-napoleon
 pylint
 docutils
 jupyter
+autopep8

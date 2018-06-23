@@ -128,11 +128,11 @@ class Graph:
     """
 
     def __init__(self, work_directory, name=None):
-        self.work_directory = work_directory
+        self.work_directory = str(work_directory)
         if name is not None:
             self.name = name
         else:
-            self.name = os.path.basename(work_directory)
+            self.name = os.path.basename(self.work_directory)
 
         self.node_list = []
         self._node_set = set()
@@ -311,6 +311,7 @@ def get_graph(name, directory=None, existing=False, overwrite=False):
     if directory is None:
         directory = os.path.dirname(util.get_caller_filepath(1))
     else:
+        directory = str(directory)
         directory = os.path.abspath(directory)
 
     if not os.path.isdir(directory):
