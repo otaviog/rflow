@@ -18,7 +18,7 @@ class TestCommand(unittest.TestCase):
 
     def test_open_graph(self):
         wf_graph = rflow.open_graph(TestCommand.WORKFLOW1_PATH,
-                                   'workflow1')
+                                    'workflow1')
         self.assertIsNotNone(wf_graph)
 
         with self.assertRaises(rflow.WorkflowError):
@@ -38,7 +38,7 @@ class TestCommand(unittest.TestCase):
 
         self.assertTrue(task_result.exists())
         g = rflow.open_graph(TestCommand.WORKFLOW1_PATH,
-                            'workflow1')
+                             'workflow1')
         g.sub.update()
         self.assertFalse(g.sub.is_dirty())
 
@@ -47,7 +47,7 @@ class TestCommand(unittest.TestCase):
 
         self.assertFalse(task_result.exists())
         g = rflow.open_graph(TestCommand.WORKFLOW1_PATH,
-                            'workflow1')
+                             'workflow1')
         g.sub.update()
         self.assertTrue(g.sub.is_dirty())
 
@@ -64,5 +64,5 @@ class TestCommand(unittest.TestCase):
                     'workflow1' / 'workflow.png')
         with work_directory(TestCommand.WORKFLOW1_PATH):
             rflow.command.main(['', 'workflow1', 'viz-dag', '--output',
-                               'workflow'])
+                                'workflow'])
         self.assertTrue(viz_path.exists())

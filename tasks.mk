@@ -2,9 +2,9 @@ about-tasks:
 	@echo "Main project tasks"
 
 doc-create:
-	rm -f doc/source/shrkit.*.rst
-	sphinx-apidoc -o doc/source/ shrkit
-	rm doc/source/modules.rst doc/source/shrkit.rst
+	rm -f doc/source/rflow.*.rst
+	sphinx-apidoc -o doc/source/ rflow
+	rm doc/source/modules.rst doc/source/rflow.rst
 	make -C doc/ html
 
 doc-open:

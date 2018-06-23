@@ -102,14 +102,8 @@ class UserArgument(core.BaseNode):
     def update(self):
         pass
 
-    def get_hash(self):
-        return None
-
     def is_dirty(self):
         return True
 
     def get_resource(self):
         return None
-
-    def get_edges(self):
-        return []

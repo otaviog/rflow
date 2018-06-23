@@ -6,50 +6,9 @@ import os
 from contextlib import contextmanager
 
 from . _argument import ArgumentSignatureDB
-from . common import WorkflowError, DOT_DATABASE_FILENAME
+from . common import WorkflowError, DOT_DATABASE_FILENAME, BaseNode
 from . import _util as util
 from ._reflection import get_caller_lineinfo
-
-
-class BaseNode:
-    """Base methods for nodes. Should be used to create new node types.
-
-    Attributes:
-
-        show (bool): Whatever the node is show on the command line
-         help.
-
-    """
-
-    def __init__(self):
-        self.show = True
-
-    def call(self):
-        """
-        Executes the node main logic and returns its value.
-        """
-
-        raise NotImplementedError()
-
-    def update(self):
-        """
-        Should update the dirty state of function :func:`is_dirty`.
-        """
-        pass
-
-    def is_dirty(self):
-        """Returns if the node should be call or it's already update.
-        """
-
-        raise NotImplementedError()
-
-    def get_resource(self):
-        """Returns the attched node's resource"""
-        raise NotImplementedError()
-
-    def get_view_name(self):
-        """Returns how the node should be labeled to the user. Default is returning its name."""
-        return self.name
 
 
 class Subgraph:

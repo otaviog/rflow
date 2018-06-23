@@ -1,6 +1,5 @@
 """Argument handling. The instances are created by other modules of
 shaperetrieval.workflow.
-
 """
 
 import os
@@ -11,7 +10,7 @@ from inspect import isfunction
 
 import lmdb
 
-from .common import Uninit, WorkflowError
+from .common import Uninit, WorkflowError, BaseNode
 from .resource import Resource
 from ._util import is_eq_override
 
@@ -19,7 +18,6 @@ _LAMBDA_NAME = (lambda x: x).__name__
 
 
 def _can_object_be_graph_argument(obj):
-    from .core import BaseNode
     if isinstance(obj, (BaseNode, Resource, int, bool, float, str,
                         Enum, type)):
         return True
@@ -213,6 +211,20 @@ class ArgumentSignatureDB:
             txn.delete(sig_id.encode())
 
     def get_measurement(self, graph_id, node_id):
+        """Retrieve from the workflow database a node's measurement
+        dictionary.
+
+        Args:
+
+            graph_id (str): The source graph's name.
+
+            node_id (str): The source node's name.
+
+        Returns:
+
+            dict: The measurement dict. Can be any user information.
+
+        """
         if self.dbenv is None:
             raise WorkflowError('Database is not opened')
         meas_id = self._get_db_meas_id(graph_id, node_id)
@@ -223,6 +235,17 @@ class ArgumentSignatureDB:
         return {}
 
     def set_measurement(self, graph_id, node_id, meas_dict):
+        """Save to the workflow database a node's measurement dictionary.
+
+        Args:
+
+            graph_id (str): The source graph's name.
+
+            node_id (str): The source node's name.
+
+            meas_dict (dict): The user's measurement dictionary.
+        """
+
         if self.dbenv is None:
             raise WorkflowError('Database is not opened')
 

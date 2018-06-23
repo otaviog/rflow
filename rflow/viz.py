@@ -137,9 +137,10 @@ def dag2dot(graph):
         _put_measurement(node)
 
     for other_node in outgraph_nodes:
-        dot.node(other_node.get_view_name(), "{}.{}".format(
-            other_node.graph.name, other_node.get_view_name()),
-            fontname="Roboto")
+        other_label = "{}.{}".format(
+            other_node.graph.name, other_node.get_view_name())
+        dot.node(other_node.get_view_name(), other_label,
+                 fontname="Roboto")
         _put_measurement(other_node)
 
     return dot

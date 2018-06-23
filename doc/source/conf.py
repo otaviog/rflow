@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Shape Retrieval documentation build configuration file, created by
+# RFlow documentation build configuration file, created by
 # sphinx-quickstart on Sun Dec 18 03:24:07 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -54,7 +54,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Shrkit'
+project = u'RFlow'
 copyright = u'2018, Otavio Gomes, Adin Rivera, Siome Goldenstein'
 author = u'Otavio Gomes, Adin Rivera, Siome Goldenstein'
 
@@ -93,7 +93,7 @@ todo_include_todos = True
 #
 html_theme = 'stanford_theme'
 html_theme_path = [sphinx_theme.get_html_theme_path('stanford-theme')]
-html_logo = "logo.png"
+# html_logo = "logo.png"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -110,7 +110,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'shrkit'
+htmlhelp_basename = 'rflow'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -137,7 +137,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'shrkit.tex', u'Shrkit Documentation',
+    (master_doc, 'rflow.tex', u'RFlow Documentation',
      u'Otavio Gomes, Adin Rivera, Siome Goldenstein', 'manual'),
 ]
 
@@ -147,7 +147,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'shrkit', u'Shrkit Documentation',
+    (master_doc, 'rflow', u'RFlow Documentation',
      [author], 1)
 ]
 
@@ -158,8 +158,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'Shrkit', u'Shrkit Documentation',
-     author, 'Shrkit', 'One line description of project.',
+    (master_doc, 'RFlow', u'RFlow Documentation',
+     author, 'RFlow', 'Workflow framework.',
      'Miscellaneous'),
 ]
 

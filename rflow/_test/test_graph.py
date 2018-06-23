@@ -58,8 +58,8 @@ class TestUtil(unittest.TestCase):
                 g2.hello = _HelloNode()
                 g2.hello.args.message = "Hello 2"
 
-        self.assertEqual(["p1_hello", "p2_hello"], [
-                         n.name for n in g.node_list])
+        self.assertEqual(["p1_hello", "p2_hello"],
+                         [n.name for n in g.node_list])
 
 
 if __name__ == '__main__':

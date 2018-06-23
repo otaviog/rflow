@@ -25,7 +25,7 @@ pages:
     - make -f tasks.mk doc-create
     - cp -r doc/build/html public
     - touch doc/tutorials/wordcounter/tutorial.ipynb
-    - make -C doc/tutorials/wordcounter/ -f tasks.mk tutorial.html
+    - make -C doc/tutorials/wordcounter tutorial.html
     - cp doc/tutorials/wordcounter/tutorial.html public/
   artifacts:
     paths:

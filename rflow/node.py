@@ -3,20 +3,20 @@
 
 import sys
 
-from . core import BaseNode
-from . common import WorkflowError, Uninit
+from . common import WorkflowError, Uninit, BaseNode
 from . _argument import get_sig_difference
 from . resource import Resource
 from ._ui import ui
 from . import _util as util
 
 
-class NodeLink(BaseNode):
+class BaseNodeLink(BaseNode):
     """Base class to wrap node's calls.
     """
+    # pylint: disable=abstract-method
 
     def __init__(self, node):
-        super(NodeLink, self).__init__()
+        super(BaseNodeLink, self).__init__()
         self._node = node
         self.graph = node.graph
 
@@ -44,7 +44,7 @@ class NodeLink(BaseNode):
         return self._node.name
 
 
-class ReturnSelNodeLink(NodeLink):
+class ReturnSelNodeLink(BaseNodeLink):
     """Utility node type for selecting value from call methods that
     return tuples.
     """
@@ -71,7 +71,10 @@ class ReturnSelNodeLink(NodeLink):
         return value
 
 
-class ResourceNodeLink(NodeLink):
+class ResourceNodeLink(BaseNodeLink):
+    """Wrappers node's resource attribute as node.
+    """
+
     def __init__(self, node, resource):
         super(ResourceNodeLink, self).__init__(node)
         self._resource = resource
@@ -114,7 +117,7 @@ class DependencyLink(object):
 
 class Node(BaseNode):
     def __init__(self, graph, name, evaluate_func,
-                 args_namespace, load_func=None, load_arg_list=[]):
+                 args_namespace, load_func=None, load_arg_list=None):
         super(Node, self).__init__()
 
         self.name = name
@@ -127,7 +130,7 @@ class Node(BaseNode):
         self.evaluate_func = evaluate_func
         self.load_func = load_func
         self.args = args_namespace
-        self.load_arg_list = load_arg_list
+        self.load_arg_list = [] if load_arg_list is None else load_arg_list
         self.dependencies = []
 
         self.erase_resource_on_fail = False
@@ -148,6 +151,7 @@ class Node(BaseNode):
         sys.exit(0)
 
     def non_collateral(self):
+        # pylint: disable=no-self-use
         return []
 
     def is_dirty(self):
@@ -235,6 +239,8 @@ class Node(BaseNode):
             self._prev_signature, self._curr_signature)
         self._dirty = len(self._signature_diff) > 0
 
+        return None
+
     def call(self, redo=False):
         # pylint: disable=protected-access
         self._check_runnable()
@@ -281,7 +287,7 @@ class Node(BaseNode):
         return self.value
 
     def touch(self):
-        #pylint: disable=protected-access
+        # pylint: disable=protected-access
         self.update()
 
         ui.executing_touch(self)

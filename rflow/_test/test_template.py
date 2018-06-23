@@ -7,7 +7,6 @@ import unittest
 from pathlib import Path
 
 import rflow
-from . import resources
 
 # pylint: disable=missing-docstring,invalid-name,no-self-use
 

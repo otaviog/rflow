@@ -83,6 +83,7 @@ class NodeTest(unittest.TestCase):
         # resource.
 
         # forget values
+        # pylint: disable=protected-access
         g.t1._is_dirty = True
         g.t2._is_dirty = True
         g.t1.value = Uninit

@@ -106,7 +106,7 @@ def open_graph(directory, graph_name, wf_filename=WORKFLOW_DEFAULT_FILENAME):
 
     if not defgraph_info_list:
         raise WorkflowError(
-            "Graph not {} found on directory {}. Available ones are:".format(
+            "Graph not {} found on directory {}. Available ones are: {}".format(
                 graph_name, directory, ', '.join(
                     [deco.name for _1, _2, deco in defgraph_info_list])))
     else:
