@@ -1,0 +1,9 @@
+venv
+.envrc
+*.lmdb
+*.ipynb
+__pycache__
+*.egg-info
+*.pyc
+*.pkl
+*.pickle

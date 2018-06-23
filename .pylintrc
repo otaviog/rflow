@@ -1,0 +1,15 @@
+[pylint]
+good-names = i,j,k,ex,Run,_,x,y,X,Y,x1,x2,y1,y2,g,p
+output-format = colorized
+max-line-length = 100
+extension-pkg-whitelist = PyQt5,torch,cv2,numpy
+ignored-modules = numpy, PurePath
+ignored-classes = numpy, PurePath
+disable = fixme, 
+  too-many-instance-attributes, 
+  too-few-public-methods, 
+  too-many-locals, 
+  too-many-arguments, 
+  bare-except, 
+  broad-except, 
+  duplicate-code

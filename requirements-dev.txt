@@ -1,0 +1,6 @@
+Sphinx
+sphinx_theme
+sphinxcontrib-napoleon
+pylint
+docutils
+jupyter
