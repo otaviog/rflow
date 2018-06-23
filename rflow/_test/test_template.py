@@ -17,7 +17,7 @@ RESOURCES = HERE / "resources"
 
 class NodeTemplate(unittest.TestCase):
     def _textfile_equals(self, text_filepath, expected):
-        with open(text_filepath, 'r') as file:
+        with open(str(text_filepath), 'r') as file:
             self.assertEqual(file.readline(), expected)
 
     def test_template(self):

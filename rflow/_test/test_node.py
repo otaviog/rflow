@@ -79,7 +79,7 @@ class NodeTest(unittest.TestCase):
     def _clean(self):
         db_path = HERE / rflow.core.DOT_DATABASE_FILENAME
         if db_path.exists():
-            shutil.rmtree(db_path)
+            shutil.rmtree(str(db_path))
 
         with suppress(FileNotFoundError):
             os.remove(HERE / "T1.pickle")

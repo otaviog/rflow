@@ -58,8 +58,8 @@ class T2(rflow.Interface):
 class NodeTest(unittest.TestCase):
     def setUp(self):
         with suppress(FileNotFoundError):
-            os.remove(HERE / "T1.pickle")
-            os.remove(HERE / "T2.pickle")
+            os.remove(str(HERE / "T1.pickle"))
+            os.remove(str(HERE / "T2.pickle"))
 
     def test_simple(self):
         with rflow.begin_graph("reentrancy", HERE) as g:
