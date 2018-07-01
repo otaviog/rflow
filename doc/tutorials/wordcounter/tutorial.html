@@ -11775,7 +11775,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Tutorial:-How-to-Create-Workflows-with-Shrkit">Tutorial: How to Create Workflows with Shrkit<a class="anchor-link" href="#Tutorial:-How-to-Create-Workflows-with-Shrkit">&#182;</a></h1><p>This tutorial shows how the Shrkit workflow module can help to develop scientific-computational experiments.</p>
+<h1 id="Tutorial:-How-to-Create-Workflows-with-RFlow">Tutorial: How to Create Workflows with RFlow<a class="anchor-link" href="#Tutorial:-How-to-Create-Workflows-with-RFlow">&#182;</a></h1><p>This tutorial shows how the RFlow module can help to develop scientific-computational experiments.</p>
 <p>Consider the hypothetical routine of computing the frequency of words from a text file. It is a simplification of a typical stage in machine learning, natural language processing, or even bioinformatics. Although simple, it summarizes two practical problems addressed by researchers:</p>
 <ul>
 <li>How to reproduce and share experiments.</li>
@@ -11808,6 +11808,7 @@ div#notebook {
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_filepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+                <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
                 <span class="n">word_freq</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">word_freq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 
     <span class="k">return</span> <span class="n">word_freq</span>
@@ -11911,18 +11912,18 @@ print_kmost(word_freq, K=10)
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0-nth word: &#34;the&#34; happens 71744 times
-1-nth word: &#34;of&#34; happens 39169 times
-2-nth word: &#34;and&#34; happens 35968 times
-3-nth word: &#34;to&#34; happens 27895 times
-4-nth word: &#34;a&#34; happens 19811 times
-5-nth word: &#34;in&#34; happens 19515 times
-6-nth word: &#34;that&#34; happens 11216 times
-7-nth word: &#34;was&#34; happens 11129 times
-8-nth word: &#34;his&#34; happens 9561 times
-9-nth word: &#34;he&#34; happens 9362 times
-CPU times: user 516 ms, sys: 31.9 ms, total: 548 ms
-Wall time: 547 ms
+<pre>0-nth word: &#34;the&#34; happens 78172 times
+1-nth word: &#34;of&#34; happens 39450 times
+2-nth word: &#34;and&#34; happens 37009 times
+3-nth word: &#34;to&#34; happens 28295 times
+4-nth word: &#34;in&#34; happens 21393 times
+5-nth word: &#34;a&#34; happens 20610 times
+6-nth word: &#34;that&#34; happens 11483 times
+7-nth word: &#34;he&#34; happens 11481 times
+8-nth word: &#34;was&#34; happens 11159 times
+9-nth word: &#34;his&#34; happens 9961 times
+CPU times: user 593 ms, sys: 23.5 ms, total: 617 ms
+Wall time: 606 ms
 </pre>
 </div>
 </div>
@@ -12038,18 +12039,18 @@ exp1()
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0-nth word: &#34;the&#34; happens 71744 times
-1-nth word: &#34;of&#34; happens 39169 times
-2-nth word: &#34;and&#34; happens 35968 times
-3-nth word: &#34;to&#34; happens 27895 times
-4-nth word: &#34;a&#34; happens 19811 times
-5-nth word: &#34;in&#34; happens 19515 times
-6-nth word: &#34;that&#34; happens 11216 times
-7-nth word: &#34;was&#34; happens 11129 times
-8-nth word: &#34;his&#34; happens 9561 times
-9-nth word: &#34;he&#34; happens 9362 times
-CPU times: user 546 ms, sys: 36.1 ms, total: 582 ms
-Wall time: 578 ms
+<pre>0-nth word: &#34;the&#34; happens 78172 times
+1-nth word: &#34;of&#34; happens 39450 times
+2-nth word: &#34;and&#34; happens 37009 times
+3-nth word: &#34;to&#34; happens 28295 times
+4-nth word: &#34;in&#34; happens 21393 times
+5-nth word: &#34;a&#34; happens 20610 times
+6-nth word: &#34;that&#34; happens 11483 times
+7-nth word: &#34;he&#34; happens 11481 times
+8-nth word: &#34;was&#34; happens 11159 times
+9-nth word: &#34;his&#34; happens 9961 times
+CPU times: user 607 ms, sys: 20.1 ms, total: 627 ms
+Wall time: 612 ms
 </pre>
 </div>
 </div>
@@ -12090,18 +12091,18 @@ exp1()
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0-nth word: &#34;the&#34; happens 71744 times
-1-nth word: &#34;of&#34; happens 39169 times
-2-nth word: &#34;and&#34; happens 35968 times
-3-nth word: &#34;to&#34; happens 27895 times
-4-nth word: &#34;a&#34; happens 19811 times
-5-nth word: &#34;in&#34; happens 19515 times
-6-nth word: &#34;that&#34; happens 11216 times
-7-nth word: &#34;was&#34; happens 11129 times
-8-nth word: &#34;his&#34; happens 9561 times
-9-nth word: &#34;he&#34; happens 9362 times
-CPU times: user 112 ms, sys: 8.28 ms, total: 120 ms
-Wall time: 117 ms
+<pre>0-nth word: &#34;the&#34; happens 78172 times
+1-nth word: &#34;of&#34; happens 39450 times
+2-nth word: &#34;and&#34; happens 37009 times
+3-nth word: &#34;to&#34; happens 28295 times
+4-nth word: &#34;in&#34; happens 21393 times
+5-nth word: &#34;a&#34; happens 20610 times
+6-nth word: &#34;that&#34; happens 11483 times
+7-nth word: &#34;he&#34; happens 11481 times
+8-nth word: &#34;was&#34; happens 11159 times
+9-nth word: &#34;his&#34; happens 9961 times
+CPU times: user 89.5 ms, sys: 4.35 ms, total: 93.8 ms
+Wall time: 90.9 ms
 </pre>
 </div>
 </div>
@@ -12116,9 +12117,9 @@ Wall time: 117 ms
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Note that reading the results of a file was at least 2 times faster than re-computing again.</p>
 <p>However, actual experiments contain multiple stages, and it would not be productive to repeat the reentrant logic code every time. More importantly, if parameters changes, then the affected parts or dependencies need to be rerun. For example, <code>compute_word_freq</code> stage depends on the data of 'big.txt'. Dependency means that if the file "big.txt" is modified, then the count must be (re)done even if its intermediary exists.</p>
-<p>Tools like Make, Luigi, Weka, and our Shrkit, encapsulate this check by modeling experiment as a direct acyclic graph (DAG). With experiments being viewed as graphs, the computations and data become the nodes, and their dependencies become the edges.</p>
-<p>Shrkit also represents experiments as DAG. We'll start a graph with Shrkit; then we'll define a node for computing word frequencies, and add it to the DAG.</p>
-<p>One way to get a DAG object is to call <code>shrkit.workflow.get_graph</code>:</p>
+<p>Tools like Make, Luigi, Weka, and our RFlow, encapsulate this check by modeling experiment as a direct acyclic graph (DAG). With experiments being viewed as graphs, the computations and data become the nodes, and their dependencies become the edges.</p>
+<p>RFlow also represents experiments as DAG. We'll start a graph with RFlow; then we'll define a node for computing word frequencies, and add it to the DAG.</p>
+<p>One way to get a DAG object is to call <code>rflow.get_graph</code>:</p>
 
 </div>
 </div>
@@ -12128,8 +12129,8 @@ Wall time: 117 ms
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">shrkit.workflow</span> <span class="k">as</span> <span class="nn">srwf</span>
-<span class="n">exp1</span> <span class="o">=</span> <span class="n">srwf</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="s1">&#39;exp1&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">rflow</span>
+<span class="n">exp1</span> <span class="o">=</span> <span class="n">rflow</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="s1">&#39;exp1&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12141,8 +12142,8 @@ Wall time: 117 ms
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This will create a DAG named <code>'exp1'</code>. On Shrkit, any DAG can be retrieved from the <code>get_graph</code> function.</p>
-<p>To define nodes, users should inherit from the class <code>shrkit.workflow.Interface</code>. The derived classes must implement a <code>evaluate()</code> function, and a optional <code>load()</code>. The first one is where the main logic should put, and save its intermediary results. The second one, <code>load()</code>, should keep the node reentrant, by loading the previously computed value.</p>
+<p>This will create a DAG named <code>'exp1'</code>. On RFlow, any DAG can be retrieved from the <code>get_graph</code> function.</p>
+<p>To define nodes, users should inherit from the class <code>rflow.Interface</code>. The derived classes must implement a <code>evaluate()</code> function, and a optional <code>load()</code>. The first one is where the main logic should put, and save its intermediary results. The second one, <code>load()</code>, should keep the node reentrant, by loading the previously computed value.</p>
 <p>The node type <code>WordFrequency</code> will carry previous word frequency functionality of computing and load:</p>
 
 </div>
@@ -12153,7 +12154,7 @@ Wall time: 117 ms
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">WordFrequency</span><span class="p">(</span><span class="n">srwf</span><span class="o">.</span><span class="n">Interface</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">WordFrequency</span><span class="p">(</span><span class="n">rflow</span><span class="o">.</span><span class="n">Interface</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Compute word frequencies from a input text file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -12198,10 +12199,10 @@ Wall time: 117 ms
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The above code needs some clarications.</p>
-<p>As early stated, Shrkit can track changes of nodes inputs. To track changes that occur inside external entities such files or database entry, Shrkit provides classes derived from <code>shrkit.workflow.Resource</code> which encapsulates existence testing and content representation.</p>
-<p>The <code>evaluate()</code> function, calls the main logic and save the results. Node's <code>evaluate()</code> function may take any number of arguments. In the above case, it accepts two arguments: <code>resource</code> and <code>input_resource</code>. The <code>resource</code> name is a special one for Shrkit. Arguments named as this are expected to be a <code>Resource</code> type. It tells to Shrkit that the node is reentrant, and its value must refer to an intermediary checkpoint destination. The code refers to a <code>filepath</code> attribute, meaning that <code>WordFrequency</code> expects a file system resource - a <code>shrkit.workflow.FSResource</code> instance.</p>
-<p>The second argument is also expected to be a <code>shrkit.workflow.FSResource</code>. So Shrkit will detect changes on the file content, and rerun the <code>evaluate()</code> if they occur.</p>
-<p>The <code>load()</code> function is called whatever Shrkit judges that no alteration occurred to the node's inputs. So it can be loaded.</p>
+<p>As early stated, RFlow can track changes of nodes inputs. To track changes that occur inside external entities such files or database entry, RFlow provides classes derived from <code>rflow.Resource</code> which encapsulates existence testing and content representation.</p>
+<p>The <code>evaluate()</code> function, calls the main logic and save the results. Node's <code>evaluate()</code> function may take any number of arguments. In the above case, it accepts two arguments: <code>resource</code> and <code>input_resource</code>. The <code>resource</code> name is a special one for RFlow. Arguments named as this are expected to be a <code>Resource</code> type. It tells to RFlow that the node is reentrant, and its value must refer to an intermediary checkpoint destination. The code refers to a <code>filepath</code> attribute, meaning that <code>WordFrequency</code> expects a file system resource - a <code>rflow.FSResource</code> instance.</p>
+<p>The second argument is also expected to be a <code>rflow.FSResource</code>. So RFlow will detect changes on the file content, and rerun the <code>evaluate()</code> if they occur.</p>
+<p>The <code>load()</code> function is called whatever RFlow judges that no alteration occurred to the node's inputs. So it can be loaded.</p>
 <p>Until now, only the node definition were shown. To put the class into use, it must be instantiated and added to a DAG:</p>
 
 </div>
@@ -12212,7 +12213,7 @@ Wall time: 117 ms
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp1</span><span class="o">.</span><span class="n">word_freq</span> <span class="o">=</span> <span class="n">WordFrequency</span><span class="p">(</span><span class="n">srwf</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;big-text-freq.txt&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp1</span><span class="o">.</span><span class="n">word_freq</span> <span class="o">=</span> <span class="n">WordFrequency</span><span class="p">(</span><span class="n">rflow</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;big-text-freq.txt&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12225,8 +12226,8 @@ Wall time: 117 ms
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A node is added by instancing and assigning it to a DAG attribute. For those not familiar with Python, new attributes can be added to an object on the fly. Every instanced node have a unique name given by its attribute name, as <code>word_freq</code> in the previous line. This name can be referenced to invoke it from command-line.</p>
-<p>The constructor argument, <code>srwf.FSResource('big-text-freq.txt')</code>, is the <code>resource</code> argument value. The <code>resource</code> parameter is so special that it be can passed directly on the constructor. Following its node definition, it's a file system resource.</p>
-<p>Other arguments are assigned to nodes by using its <code>.args</code> attribute. By reflection, Shrkit fills <code>.args</code> with attributes named after each  <code>evaluate()</code> arguments. For example, to set <code>input_resource</code> pointing to the 'big-text.txt' file system resource:</p>
+<p>The constructor argument, <code>rflow.FSResource('big-text-freq.txt')</code>, is the <code>resource</code> argument value. The <code>resource</code> parameter is so special that it be can passed directly on the constructor. Following its node definition, it's a file system resource.</p>
+<p>Other arguments are assigned to nodes by using its <code>.args</code> attribute. By reflection, RFlow fills <code>.args</code> with attributes named after each  <code>evaluate()</code> arguments. For example, to set <code>input_resource</code> pointing to the 'big-text.txt' file system resource:</p>
 
 </div>
 </div>
@@ -12236,7 +12237,7 @@ Wall time: 117 ms
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp1</span><span class="o">.</span><span class="n">word_freq</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">input_resource</span> <span class="o">=</span> <span class="n">srwf</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;big-text.txt&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp1</span><span class="o">.</span><span class="n">word_freq</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">input_resource</span> <span class="o">=</span> <span class="n">rflow</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;big-text.txt&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12300,7 +12301,7 @@ Wall time: 117 ms
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">PrintKMost</span><span class="p">(</span><span class="n">srwf</span><span class="o">.</span><span class="n">Interface</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">PrintKMost</span><span class="p">(</span><span class="n">rflow</span><span class="o">.</span><span class="n">Interface</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Prints the K most frequent words.    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -12386,18 +12387,19 @@ Wall time: 117 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-fg">RUN  exp1:kmost_freq
-</span>0-nth word: &#34;the&#34; happens 71744 times
-1-nth word: &#34;of&#34; happens 39169 times
-2-nth word: &#34;and&#34; happens 35968 times
-3-nth word: &#34;to&#34; happens 27895 times
-4-nth word: &#34;a&#34; happens 19811 times
-5-nth word: &#34;in&#34; happens 19515 times
-6-nth word: &#34;that&#34; happens 11216 times
-7-nth word: &#34;was&#34; happens 11129 times
-8-nth word: &#34;his&#34; happens 9561 times
-9-nth word: &#34;he&#34; happens 9362 times
-^<span class="ansi-green-fg">exp1:kmost_freq
+<pre><span class="ansi-green-fg">UPDATE  exp1:kmost_freq
+</span>.<span class="ansi-yellow-fg">RUN  exp1:kmost_freq
+</span>0-nth word: &#34;the&#34; happens 78172 times
+1-nth word: &#34;of&#34; happens 39450 times
+2-nth word: &#34;and&#34; happens 37009 times
+3-nth word: &#34;to&#34; happens 28295 times
+4-nth word: &#34;in&#34; happens 21393 times
+5-nth word: &#34;a&#34; happens 20610 times
+6-nth word: &#34;that&#34; happens 11483 times
+7-nth word: &#34;he&#34; happens 11481 times
+8-nth word: &#34;was&#34; happens 11159 times
+9-nth word: &#34;his&#34; happens 9961 times
+.^<span class="ansi-yellow-fg">exp1:kmost_freq
 </span></pre>
 </div>
 </div>
@@ -12439,20 +12441,22 @@ Wall time: 117 ms
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Removing resource big-text-freq.txt
-<span class="ansi-green-fg">RUN  exp1:kmost_freq
-</span>.<span class="ansi-yellow-fg">RUN  exp1:word_freq
-</span>.^<span class="ansi-yellow-fg">exp1:word_freq
-</span>0-nth word: &#34;the&#34; happens 71744 times
-1-nth word: &#34;of&#34; happens 39169 times
-2-nth word: &#34;and&#34; happens 35968 times
-3-nth word: &#34;to&#34; happens 27895 times
-4-nth word: &#34;a&#34; happens 19811 times
-5-nth word: &#34;in&#34; happens 19515 times
-6-nth word: &#34;that&#34; happens 11216 times
-7-nth word: &#34;was&#34; happens 11129 times
-8-nth word: &#34;his&#34; happens 9561 times
-9-nth word: &#34;he&#34; happens 9362 times
-^<span class="ansi-green-fg">exp1:kmost_freq
+.<span class="ansi-yellow-fg">UPDATE  exp1:kmost_freq
+</span>..<span class="ansi-blue-fg">UPDATE  exp1:word_freq
+</span>...<span class="ansi-magenta-fg">RUN  exp1:word_freq
+</span>...^<span class="ansi-magenta-fg">exp1:word_freq
+</span>...<span class="ansi-magenta-fg">RUN  exp1:kmost_freq
+</span>0-nth word: &#34;the&#34; happens 78172 times
+1-nth word: &#34;of&#34; happens 39450 times
+2-nth word: &#34;and&#34; happens 37009 times
+3-nth word: &#34;to&#34; happens 28295 times
+4-nth word: &#34;in&#34; happens 21393 times
+5-nth word: &#34;a&#34; happens 20610 times
+6-nth word: &#34;that&#34; happens 11483 times
+7-nth word: &#34;he&#34; happens 11481 times
+8-nth word: &#34;was&#34; happens 11159 times
+9-nth word: &#34;his&#34; happens 9961 times
+...^<span class="ansi-magenta-fg">exp1:kmost_freq
 </span></pre>
 </div>
 </div>
@@ -12475,7 +12479,7 @@ Wall time: 117 ms
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Shrkit caches previous values. </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># RFlow caches previous values. </span>
 <span class="c1"># Use `redo=True` to force the call</span>
 <span class="c1"># node execution</span>
 <span class="n">exp1</span><span class="o">.</span><span class="n">kmost_freq</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">redo</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -12495,18 +12499,19 @@ Wall time: 117 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-fg">RUN  exp1:kmost_freq
-</span>0-nth word: &#34;the&#34; happens 71744 times
-1-nth word: &#34;of&#34; happens 39169 times
-2-nth word: &#34;and&#34; happens 35968 times
-3-nth word: &#34;to&#34; happens 27895 times
-4-nth word: &#34;a&#34; happens 19811 times
-5-nth word: &#34;in&#34; happens 19515 times
-6-nth word: &#34;that&#34; happens 11216 times
-7-nth word: &#34;was&#34; happens 11129 times
-8-nth word: &#34;his&#34; happens 9561 times
-9-nth word: &#34;he&#34; happens 9362 times
-^<span class="ansi-green-fg">exp1:kmost_freq
+<pre>...<span class="ansi-magenta-fg">UPDATE  exp1:kmost_freq
+</span>....<span class="ansi-cyan-fg">RUN  exp1:kmost_freq
+</span>0-nth word: &#34;the&#34; happens 78172 times
+1-nth word: &#34;of&#34; happens 39450 times
+2-nth word: &#34;and&#34; happens 37009 times
+3-nth word: &#34;to&#34; happens 28295 times
+4-nth word: &#34;in&#34; happens 21393 times
+5-nth word: &#34;a&#34; happens 20610 times
+6-nth word: &#34;that&#34; happens 11483 times
+7-nth word: &#34;he&#34; happens 11481 times
+8-nth word: &#34;was&#34; happens 11159 times
+9-nth word: &#34;his&#34; happens 9961 times
+....^<span class="ansi-cyan-fg">exp1:kmost_freq
 </span></pre>
 </div>
 </div>
@@ -12519,7 +12524,7 @@ Wall time: 117 ms
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-.args-value-restrictions">The <code>.args</code> value restrictions<a class="anchor-link" href="#The-.args-value-restrictions">&#182;</a></h3><p>Shrkit writes all arguments to a database, so every node instance has a signature of its previous call. If the signature matches with the stored one, the node is considered updated. However, constant values such <code>kmost_freq.args.K = 10</code> must have two restrictions:</p>
+<h3 id="The-.args-value-restrictions">The <code>.args</code> value restrictions<a class="anchor-link" href="#The-.args-value-restrictions">&#182;</a></h3><p>RFlow writes all arguments to a database, so every node instance has a signature of its previous call. If the signature matches with the stored one, the node is considered updated. However, constant values such <code>kmost_freq.args.K = 10</code> must have two restrictions:</p>
 <ul>
 <li>Must be serializable with <code>pickle</code>;</li>
 <li>Must have a <code>__equal__</code> implementation.</li>
@@ -12561,15 +12566,15 @@ Wall time: 117 ms
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Print</span><span class="p">(</span><span class="n">srwf</span><span class="o">.</span><span class="n">Interface</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Print</span><span class="p">(</span><span class="n">rflow</span><span class="o">.</span><span class="n">Interface</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
         
-<span class="n">ta</span> <span class="o">=</span> <span class="n">srwf</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="s1">&#39;test-args&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ta</span> <span class="o">=</span> <span class="n">rflow</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="s1">&#39;test-args&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ta</span><span class="o">.</span><span class="n">print_const</span> <span class="o">=</span> <span class="n">Print</span><span class="p">()</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">ta</span><span class="o">.</span><span class="n">print_const</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">Uncomparable</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">except</span> <span class="n">srwf</span><span class="o">.</span><span class="n">WorkflowError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<span class="k">except</span> <span class="n">rflow</span><span class="o">.</span><span class="n">WorkflowError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
 </pre></div>
 
@@ -12601,8 +12606,7 @@ Wall time: 117 ms
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>An error is raised because <code>Uncomparable</code> does not have a <code>__eq__</code> override.</p>
-<p>To actually add it to a graph is necessary to encapsulate inside a node, so Shrkit can compare its signature.</p>
-<p>One way is to use the <code>shrkit.workflow.VarNode</code> class:</p>
+<p>To solve this problem, create <code>rflow.Interface</code>s to instantiate uncomparable or not serializable objects. Then pass  RFlow-friendly arguments to keep the DAG is sensible to changes on those objects.</p>
 
 </div>
 </div>
@@ -12612,29 +12616,7 @@ Wall time: 117 ms
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ta</span><span class="o">.</span><span class="n">print_const</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">srwf</span><span class="o">.</span><span class="n">VarNode</span><span class="p">(</span><span class="n">Uncomparable</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As a downside,  <code>Uncomparable</code> will always be created. To overcome this, we can create a node to initialize it:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">GetUncomparable</span><span class="p">(</span><span class="n">srwf</span><span class="o">.</span><span class="n">Interface</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">GetUncomparable</span><span class="p">(</span><span class="n">rflow</span><span class="o">.</span><span class="n">Interface</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">int_value</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Uncomparable</span><span class="p">(</span><span class="n">int_value</span><span class="p">)</span>
     
@@ -12651,7 +12633,7 @@ Wall time: 117 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ta</span><span class="o">.</span><span class="n">print_const</span><span class="o">.</span><span class="n">call</span><span class="p">()</span>
@@ -12671,11 +12653,13 @@ Wall time: 117 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-fg">RUN  test-args:print_const
-</span>.<span class="ansi-yellow-fg">RUN  test-args:get_uncomp
-</span>.^<span class="ansi-yellow-fg">test-args:get_uncomp
+<pre>....<span class="ansi-cyan-fg">UPDATE  test-args:print_const
+</span>.....<span class="ansi-white-fg">UPDATE  test-args:get_uncomp
+</span>......<span class="ansi-black-fg">RUN  test-args:get_uncomp
+</span>......^<span class="ansi-black-fg">test-args:get_uncomp
+</span>......<span class="ansi-black-fg">RUN  test-args:print_const
 </span>4
-^<span class="ansi-green-fg">test-args:print_const
+......^<span class="ansi-black-fg">test-args:print_const
 </span></pre>
 </div>
 </div>
@@ -12697,18 +12681,18 @@ Wall time: 117 ms
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Viewing-Graphs">Viewing Graphs<a class="anchor-link" href="#Viewing-Graphs">&#182;</a></h2><p>Shrkit graphs can be view with Graphviz:</p>
+<h2 id="Viewing-Graphs">Viewing Graphs<a class="anchor-link" href="#Viewing-Graphs">&#182;</a></h2><p>RFlow graphs can be view with Graphviz:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">graphviz</span>
-<span class="kn">import</span> <span class="nn">shrkit.workflow.viz</span> <span class="k">as</span> <span class="nn">viz</span>
+<span class="kn">import</span> <span class="nn">rflow.viz</span> <span class="k">as</span> <span class="nn">viz</span>
 
 <span class="n">viz</span><span class="o">.</span><span class="n">dag2dot</span><span class="p">(</span><span class="n">exp1</span><span class="p">)</span>
 </pre></div>
@@ -12723,7 +12707,7 @@ Wall time: 117 ms
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[25]:</div>
+<div class="prompt output_prompt">Out[24]:</div>
 
 
 
@@ -12804,7 +12788,7 @@ Wall time: 117 ms
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Adding-more-nodes">Adding more nodes<a class="anchor-link" href="#Adding-more-nodes">&#182;</a></h2><p>Suppose that a new thesis arrived about random texting counting. Researchers want to base their new experiments on the former base, so they know that are using the same procedures on both thesis.</p>
-<p>With Shrkit, they could define a new graph vertex for generating random text and insert into a new graph.</p>
+<p>With RFlow, they could define a new graph vertex for generating random text and insert into a new graph.</p>
 <p>First, the next code will define the random text generator interface:</p>
 
 </div>
@@ -12812,19 +12796,19 @@ Wall time: 117 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 
-<span class="k">class</span> <span class="nc">RandomText</span><span class="p">(</span><span class="n">srwf</span><span class="o">.</span><span class="n">Interface</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">RandomText</span><span class="p">(</span><span class="n">rflow</span><span class="o">.</span><span class="n">Interface</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Generates random text.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">num_of_words</span><span class="p">,</span> <span class="n">selected_words</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Args:</span>
 
-<span class="sd">            resource (shrkit.workflow.FSResource): File resource to </span>
+<span class="sd">            resource (rflow.FSResource): File resource to </span>
 <span class="sd">             write the random words.</span>
 
 <span class="sd">            num_of_words (int): How many words to generate.</span>
@@ -12839,7 +12823,7 @@ Wall time: 117 ms
                 <span class="n">file_stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The `load()` method indicates to Shrkit that node is reentrant. </span>
+        <span class="sd">&quot;&quot;&quot;The `load()` method indicates to RFlow that node is reentrant. </span>
 <span class="sd">        As `evaluate()` didn&#39;t return anything, we can leave it empty.        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span>
@@ -12861,10 +12845,10 @@ Wall time: 117 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp2</span> <span class="o">=</span> <span class="n">srwf</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="s1">&#39;exp2&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp2</span> <span class="o">=</span> <span class="n">rflow</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="s1">&#39;exp2&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    
 </pre></div>
 
 </div>
@@ -12883,10 +12867,10 @@ Wall time: 117 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp2</span><span class="o">.</span><span class="n">random_text</span> <span class="o">=</span> <span class="n">RandomText</span><span class="p">(</span><span class="n">srwf</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;random-text.txt&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp2</span><span class="o">.</span><span class="n">random_text</span> <span class="o">=</span> <span class="n">RandomText</span><span class="p">(</span><span class="n">rflow</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;random-text.txt&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12905,7 +12889,7 @@ Wall time: 117 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">exp2</span><span class="o">.</span><span class="n">random_text</span> <span class="k">as</span> <span class="n">args</span><span class="p">:</span>
@@ -12932,10 +12916,10 @@ Wall time: 117 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp2</span><span class="o">.</span><span class="n">word_freq</span> <span class="o">=</span> <span class="n">WordFrequency</span><span class="p">(</span><span class="n">srwf</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;random-text-freq.txt&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp2</span><span class="o">.</span><span class="n">word_freq</span> <span class="o">=</span> <span class="n">WordFrequency</span><span class="p">(</span><span class="n">rflow</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;random-text-freq.txt&#39;</span><span class="p">))</span>
 <span class="n">exp2</span><span class="o">.</span><span class="n">word_freq</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">input_resource</span> <span class="o">=</span> <span class="n">exp2</span><span class="o">.</span><span class="n">random_text</span><span class="o">.</span><span class="n">resource</span>
 </pre></div>
 
@@ -12956,7 +12940,7 @@ Wall time: 117 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp2</span><span class="o">.</span><span class="n">kmost_freq</span> <span class="o">=</span> <span class="n">PrintKMost</span><span class="p">()</span>
@@ -12981,10 +12965,10 @@ Wall time: 117 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">graphviz</span><span class="o">.</span><span class="n">Source</span><span class="p">(</span><span class="n">viz</span><span class="o">.</span><span class="n">dag2dot</span><span class="p">(</span><span class="n">exp2</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">viz</span><span class="o">.</span><span class="n">dag2dot</span><span class="p">(</span><span class="n">exp2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12997,7 +12981,7 @@ Wall time: 117 ms
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[32]:</div>
+<div class="prompt output_prompt">Out[31]:</div>
 
 
 
@@ -13112,14 +13096,14 @@ Wall time: 117 ms
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Executing it two times to check whatever Shrkit not execute <code>random_text</code> or <code>word_freq</code> without necessity.</p>
+<p>Executing it two times to check whatever RFlow not execute <code>random_text</code> or <code>word_freq</code> without necessity.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp2</span><span class="o">.</span><span class="n">random_text</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span> <span class="c1"># Remove previous run random text</span>
@@ -13142,22 +13126,25 @@ Wall time: 117 ms
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Removing resource random-text.txt
-<span class="ansi-green-fg">RUN  exp2:kmost_freq
-</span>.<span class="ansi-yellow-fg">RUN  exp2:word_freq
-</span>..<span class="ansi-blue-fg">RUN  exp2:random_text
-</span>..^<span class="ansi-blue-fg">exp2:random_text
-</span>.^<span class="ansi-yellow-fg">exp2:word_freq
-</span>0-nth word: &#34;elit&#34; happens 8 times
-1-nth word: &#34;vestibulum&#34; happens 6 times
-2-nth word: &#34;sit&#34; happens 6 times
-3-nth word: &#34;adipiscing&#34; happens 5 times
-4-nth word: &#34;lorem&#34; happens 5 times
-5-nth word: &#34;felis&#34; happens 5 times
-6-nth word: &#34;non&#34; happens 4 times
-7-nth word: &#34;consectetur&#34; happens 3 times
-8-nth word: &#34;amet&#34; happens 3 times
-9-nth word: &#34;feugiat&#34; happens 3 times
-^<span class="ansi-green-fg">exp2:kmost_freq
+......<span class="ansi-black-fg">UPDATE  exp2:kmost_freq
+</span>.......<span class="ansi-green-fg">UPDATE  exp2:word_freq
+</span>........<span class="ansi-yellow-fg">UPDATE  exp2:random_text
+</span>.........<span class="ansi-blue-fg">RUN  exp2:random_text
+</span>.........^<span class="ansi-blue-fg">exp2:random_text
+</span>.........<span class="ansi-blue-fg">RUN  exp2:word_freq
+</span>.........^<span class="ansi-blue-fg">exp2:word_freq
+</span>.........<span class="ansi-blue-fg">RUN  exp2:kmost_freq
+</span>0-nth word: &#34;vestibulum&#34; happens 9 times
+1-nth word: &#34;felis&#34; happens 6 times
+2-nth word: &#34;elit&#34; happens 6 times
+3-nth word: &#34;ipsum&#34; happens 5 times
+4-nth word: &#34;adipiscing&#34; happens 4 times
+5-nth word: &#34;sit&#34; happens 4 times
+6-nth word: &#34;amet&#34; happens 4 times
+7-nth word: &#34;feugiat&#34; happens 4 times
+8-nth word: &#34;dolor&#34; happens 3 times
+9-nth word: &#34;lorem&#34; happens 2 times
+.........^<span class="ansi-blue-fg">exp2:kmost_freq
 </span></pre>
 </div>
 </div>
@@ -13177,7 +13164,7 @@ Wall time: 117 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Use the redo flag again, to force</span>
@@ -13199,18 +13186,19 @@ Wall time: 117 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-fg">RUN  exp2:kmost_freq
-</span>0-nth word: &#34;elit&#34; happens 8 times
-1-nth word: &#34;vestibulum&#34; happens 6 times
-2-nth word: &#34;sit&#34; happens 6 times
-3-nth word: &#34;adipiscing&#34; happens 5 times
-4-nth word: &#34;lorem&#34; happens 5 times
-5-nth word: &#34;felis&#34; happens 5 times
-6-nth word: &#34;non&#34; happens 4 times
-7-nth word: &#34;consectetur&#34; happens 3 times
-8-nth word: &#34;amet&#34; happens 3 times
-9-nth word: &#34;feugiat&#34; happens 3 times
-^<span class="ansi-green-fg">exp2:kmost_freq
+<pre>.........<span class="ansi-blue-fg">UPDATE  exp2:kmost_freq
+</span>..........<span class="ansi-magenta-fg">RUN  exp2:kmost_freq
+</span>0-nth word: &#34;vestibulum&#34; happens 9 times
+1-nth word: &#34;felis&#34; happens 6 times
+2-nth word: &#34;elit&#34; happens 6 times
+3-nth word: &#34;ipsum&#34; happens 5 times
+4-nth word: &#34;adipiscing&#34; happens 4 times
+5-nth word: &#34;sit&#34; happens 4 times
+6-nth word: &#34;amet&#34; happens 4 times
+7-nth word: &#34;feugiat&#34; happens 4 times
+8-nth word: &#34;dolor&#34; happens 3 times
+9-nth word: &#34;lorem&#34; happens 2 times
+..........^<span class="ansi-magenta-fg">exp2:kmost_freq
 </span></pre>
 </div>
 </div>
@@ -13231,7 +13219,7 @@ Wall time: 117 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp2</span><span class="o">.</span><span class="n">random_text</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">num_of_words</span> <span class="o">=</span> <span class="mi">100</span>
@@ -13252,22 +13240,25 @@ Wall time: 117 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-fg">RUN  exp2:kmost_freq
-</span>.<span class="ansi-yellow-fg">RUN  exp2:word_freq
-</span>..<span class="ansi-blue-fg">RUN  exp2:random_text
-</span>..^<span class="ansi-blue-fg">exp2:random_text
-</span>.^<span class="ansi-yellow-fg">exp2:word_freq
-</span>0-nth word: &#34;dolor&#34; happens 12 times
-1-nth word: &#34;amet&#34; happens 11 times
-2-nth word: &#34;adipiscing&#34; happens 11 times
-3-nth word: &#34;lorem&#34; happens 10 times
-4-nth word: &#34;vestibulum&#34; happens 9 times
-5-nth word: &#34;feugiat&#34; happens 9 times
-6-nth word: &#34;felis&#34; happens 9 times
-7-nth word: &#34;elit&#34; happens 8 times
-8-nth word: &#34;ipsum&#34; happens 6 times
-9-nth word: &#34;non&#34; happens 5 times
-^<span class="ansi-green-fg">exp2:kmost_freq
+<pre>..........<span class="ansi-magenta-fg">UPDATE  exp2:kmost_freq
+</span>...........<span class="ansi-cyan-fg">UPDATE  exp2:word_freq
+</span>............<span class="ansi-white-fg">UPDATE  exp2:random_text
+</span>.............<span class="ansi-black-fg">RUN  exp2:random_text
+</span>.............^<span class="ansi-black-fg">exp2:random_text
+</span>.............<span class="ansi-black-fg">RUN  exp2:word_freq
+</span>.............^<span class="ansi-black-fg">exp2:word_freq
+</span>.............<span class="ansi-black-fg">RUN  exp2:kmost_freq
+</span>0-nth word: &#34;felis&#34; happens 12 times
+1-nth word: &#34;consectetur&#34; happens 11 times
+2-nth word: &#34;vestibulum&#34; happens 11 times
+3-nth word: &#34;adipiscing&#34; happens 10 times
+4-nth word: &#34;sit&#34; happens 10 times
+5-nth word: &#34;amet&#34; happens 10 times
+6-nth word: &#34;feugiat&#34; happens 8 times
+7-nth word: &#34;dolor&#34; happens 7 times
+8-nth word: &#34;ipsum&#34; happens 7 times
+9-nth word: &#34;elit&#34; happens 7 times
+.............^<span class="ansi-black-fg">exp2:kmost_freq
 </span></pre>
 </div>
 </div>
@@ -13280,7 +13271,7 @@ Wall time: 117 ms
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When changing <code>num_of_words</code> to 100, Shrkit detected this and recalled all dependent nodes.</p>
+<p>When changing <code>num_of_words</code> to 100, RFlow detected this and recalled all dependent nodes.</p>
 
 </div>
 </div>
@@ -13289,12 +13280,12 @@ Wall time: 117 ms
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Putting-DAG-inside-workflow.py-files">Putting DAG inside workflow.py files<a class="anchor-link" href="#Putting-DAG-inside-workflow.py-files">&#182;</a></h2><p>Shrkit DAG can be used inside Jupyter notebooks, but it is primarily designed to run from files named <code>workflow.py</code>. This makes more comfortable sharing and reusing code.</p>
+<h2 id="Putting-DAG-inside-workflow.py-files">Putting DAG inside workflow.py files<a class="anchor-link" href="#Putting-DAG-inside-workflow.py-files">&#182;</a></h2><p>RFlow DAG can be used inside Jupyter notebooks, but it is primarily designed to run from files named <code>workflow.py</code>. This makes more comfortable sharing and reusing code.</p>
 <p>For the word counting example, create the file <a href="workflow.py">workflow.py</a> in the same directory as the "big.txt" file.  Put all node definition code in it.</p>
-<p>The graph code will be the same, except that it should use the <code>shrkit.workflow.graph()</code> decorator to provide an initialized graph object. The next snippet shows how the graph code should be placed on the file:</p>
-<div class="highlight"><pre><span></span><span class="nd">@srwf.graph</span><span class="p">()</span>
+<p>The graph code will be the same, except that it should use the <code>rflow.graph()</code> decorator to provide an initialized graph object. The next snippet shows how the graph code should be placed on the file:</p>
+<div class="highlight"><pre><span></span><span class="nd">@rflow.graph</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">exp2</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
-    <span class="n">g</span><span class="o">.</span><span class="n">random_text</span> <span class="o">=</span> <span class="n">RandomText</span><span class="p">(</span><span class="n">srwf</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;random-text.txt&#39;</span><span class="p">))</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">random_text</span> <span class="o">=</span> <span class="n">RandomText</span><span class="p">(</span><span class="n">rflow</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;random-text.txt&#39;</span><span class="p">))</span>
     <span class="k">with</span> <span class="n">g</span><span class="o">.</span><span class="n">random_text</span> <span class="k">as</span> <span class="n">args</span><span class="p">:</span>
         <span class="n">args</span><span class="o">.</span><span class="n">num_of_words</span> <span class="o">=</span> <span class="mi">50</span>
         <span class="n">args</span><span class="o">.</span><span class="n">selected_words</span> <span class="o">=</span> <span class="p">[</span>
@@ -13302,7 +13293,7 @@ Wall time: 117 ms
             <span class="s1">&#39;consectetur&#39;</span><span class="p">,</span> <span class="s1">&#39;adipiscing&#39;</span><span class="p">,</span> <span class="s1">&#39;elit&#39;</span><span class="p">,</span> <span class="s1">&#39;vestibulum&#39;</span><span class="p">,</span>
             <span class="s1">&#39;non&#39;</span><span class="p">,</span> <span class="s1">&#39;feugiat&#39;</span><span class="p">,</span> <span class="s1">&#39;felis&#39;</span><span class="p">]</span>
 
-    <span class="n">g</span><span class="o">.</span><span class="n">word_freq</span> <span class="o">=</span> <span class="n">WordFrequency</span><span class="p">(</span><span class="n">srwf</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;random-text-freq.txt&#39;</span><span class="p">))</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">word_freq</span> <span class="o">=</span> <span class="n">WordFrequency</span><span class="p">(</span><span class="n">rflow</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;random-text-freq.txt&#39;</span><span class="p">))</span>
     <span class="n">g</span><span class="o">.</span><span class="n">word_freq</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">input_resource</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">random_text</span><span class="o">.</span><span class="n">resource</span>
 
     <span class="n">g</span><span class="o">.</span><span class="n">kmost_freq</span> <span class="o">=</span> <span class="n">PrintKMost</span><span class="p">()</span>
@@ -13315,17 +13306,17 @@ Wall time: 117 ms
 <li>The graph's name is its function name - <code>exp2</code>.</li>
 <li>The <code>g</code> variable is a already created graph by the decorator.</li>
 </ul>
-<p>Graphs then can be executed with <code>srwf</code> command. The first one will <code>clean</code> the <code>word_freq</code> node:</p>
+<p>Graphs then can be executed with <code>rflow</code> command. The first one will <code>clean</code> the <code>word_freq</code> node:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>srwf exp2 clean word_freq
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rflow exp2 clean word_freq
 </pre></div>
 
 </div>
@@ -13355,17 +13346,17 @@ Wall time: 117 ms
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The first argument to <code>srwf</code> is the target graph. The second one is the command. There are the following commands:</p>
+<p>The first argument to <code>rflow</code> is the target graph. The second one is the command. There are the following commands:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>srwf exp2 -h
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rflow exp2 -h
 </pre></div>
 
 </div>
@@ -13382,9 +13373,9 @@ Wall time: 117 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>usage: srwf [-h] {exp2} {run,touch,print-run,viz-dag,help,clean}
+<pre>usage: rflow [-h] {exp2} {run,touch,print-run,viz-dag,help,clean}
 
-Shrkit workflow manager
+RFlow workflow runner
 
 positional arguments:
   {exp2}
@@ -13411,10 +13402,10 @@ optional arguments:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>srwf exp2 run -h
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rflow exp2 run -h
 </pre></div>
 
 </div>
@@ -13431,7 +13422,7 @@ optional arguments:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>usage: srwf [-h] [--redo] node
+<pre>usage: rflow [-h] [--redo] node
 
 Executes the workflow to a node.
 
@@ -13461,10 +13452,10 @@ optional arguments:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>srwf exp2 run kmost_freq
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rflow exp2 run kmost_freq
 </pre></div>
 
 </div>
@@ -13481,22 +13472,25 @@ optional arguments:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-fg">RUN  exp2:kmost_freq
-</span>.<span class="ansi-yellow-fg">RUN  exp2:word_freq
-</span>..<span class="ansi-blue-fg">RUN  exp2:random_text
-</span>..^<span class="ansi-blue-fg">exp2:random_text
-</span>.^<span class="ansi-yellow-fg">exp2:word_freq
-</span>0-nth word: &#34;felis&#34; happens 10 times
-1-nth word: &#34;ipsum&#34; happens 7 times
-2-nth word: &#34;adipiscing&#34; happens 6 times
-3-nth word: &#34;amet&#34; happens 5 times
-4-nth word: &#34;vestibulum&#34; happens 5 times
-5-nth word: &#34;consectetur&#34; happens 5 times
-6-nth word: &#34;lorem&#34; happens 4 times
-7-nth word: &#34;sit&#34; happens 3 times
-8-nth word: &#34;non&#34; happens 2 times
-9-nth word: &#34;feugiat&#34; happens 1 times
-^<span class="ansi-green-fg">exp2:kmost_freq
+<pre><span class="ansi-green-fg">UPDATE  exp2:kmost_freq
+</span>.<span class="ansi-yellow-fg">UPDATE  exp2:word_freq
+</span>..<span class="ansi-blue-fg">UPDATE  exp2:random_text
+</span>...<span class="ansi-magenta-fg">RUN  exp2:random_text
+</span>...^<span class="ansi-magenta-fg">exp2:random_text
+</span>...<span class="ansi-magenta-fg">RUN  exp2:word_freq
+</span>...^<span class="ansi-magenta-fg">exp2:word_freq
+</span>...<span class="ansi-magenta-fg">RUN  exp2:kmost_freq
+</span>0-nth word: &#34;ipsum&#34; happens 9 times
+1-nth word: &#34;sit&#34; happens 6 times
+2-nth word: &#34;vestibulum&#34; happens 6 times
+3-nth word: &#34;dolor&#34; happens 5 times
+4-nth word: &#34;adipiscing&#34; happens 5 times
+5-nth word: &#34;felis&#34; happens 4 times
+6-nth word: &#34;amet&#34; happens 4 times
+7-nth word: &#34;non&#34; happens 3 times
+8-nth word: &#34;elit&#34; happens 2 times
+9-nth word: &#34;lorem&#34; happens 2 times
+...^<span class="ansi-magenta-fg">exp2:kmost_freq
 </span></pre>
 </div>
 </div>
@@ -13516,10 +13510,10 @@ optional arguments:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>srwf exp2 run kmost_freq
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rflow exp2 run kmost_freq
 </pre></div>
 
 </div>
@@ -13536,20 +13530,21 @@ optional arguments:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-fg">RUN  exp2:kmost_freq
+<pre><span class="ansi-green-fg">UPDATE  exp2:kmost_freq
 </span>.<span class="ansi-yellow-fg">LOAD exp2:word_freq
 </span>.^<span class="ansi-yellow-fg">DONE exp2:word_freq
-</span>0-nth word: &#34;felis&#34; happens 10 times
-1-nth word: &#34;ipsum&#34; happens 7 times
-2-nth word: &#34;adipiscing&#34; happens 6 times
-3-nth word: &#34;amet&#34; happens 5 times
-4-nth word: &#34;vestibulum&#34; happens 5 times
-5-nth word: &#34;consectetur&#34; happens 5 times
-6-nth word: &#34;lorem&#34; happens 4 times
-7-nth word: &#34;sit&#34; happens 3 times
-8-nth word: &#34;non&#34; happens 2 times
-9-nth word: &#34;feugiat&#34; happens 1 times
-^<span class="ansi-green-fg">exp2:kmost_freq
+</span>.<span class="ansi-yellow-fg">RUN  exp2:kmost_freq
+</span>0-nth word: &#34;ipsum&#34; happens 9 times
+1-nth word: &#34;sit&#34; happens 6 times
+2-nth word: &#34;vestibulum&#34; happens 6 times
+3-nth word: &#34;dolor&#34; happens 5 times
+4-nth word: &#34;adipiscing&#34; happens 5 times
+5-nth word: &#34;felis&#34; happens 4 times
+6-nth word: &#34;amet&#34; happens 4 times
+7-nth word: &#34;non&#34; happens 3 times
+8-nth word: &#34;elit&#34; happens 2 times
+9-nth word: &#34;lorem&#34; happens 2 times
+.^<span class="ansi-yellow-fg">exp2:kmost_freq
 </span></pre>
 </div>
 </div>
@@ -13563,7 +13558,7 @@ optional arguments:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Graphviz visualizations are available on command line too:</p>
-<div class="highlight"><pre><span></span><span class="nv">$srwf</span> exp2 viz-dag
+<div class="highlight"><pre><span></span><span class="nv">$rflow</span> exp2 viz-dag
 </pre></div>
 
 </div>
@@ -13573,7 +13568,7 @@ optional arguments:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Using-sub-graphs">Using sub-graphs<a class="anchor-link" href="#Using-sub-graphs">&#182;</a></h2><p>Sometimes researchers want to keep two parameterized branches of an experiment. In Shrkit they can create sub-functions to generate on the fly.</p>
+<h2 id="Using-sub-graphs">Using sub-graphs<a class="anchor-link" href="#Using-sub-graphs">&#182;</a></h2><p>Sometimes researchers want to keep two parameterized branches of an experiment. In RFlow they can create sub-functions to generate on the fly.</p>
 <p>Suppose that we want to track the effects of counting 50 or 100 random words. Next code creates a function to generate DAGs with different word counts, through <code>word_count</code> parameter.</p>
 
 </div>
@@ -13581,11 +13576,11 @@ optional arguments:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">_sub_graph</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">word_count</span><span class="p">):</span>
-    <span class="n">s</span><span class="o">.</span><span class="n">random_text</span> <span class="o">=</span> <span class="n">RandomText</span><span class="p">(</span><span class="n">srwf</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-random-text.txt&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">word_count</span><span class="p">)))</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">random_text</span> <span class="o">=</span> <span class="n">RandomText</span><span class="p">(</span><span class="n">rflow</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-random-text.txt&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">word_count</span><span class="p">)))</span>
     <span class="k">with</span> <span class="n">s</span><span class="o">.</span><span class="n">random_text</span> <span class="k">as</span> <span class="n">args</span><span class="p">:</span>
         <span class="n">args</span><span class="o">.</span><span class="n">num_of_words</span> <span class="o">=</span> <span class="n">word_count</span>
         <span class="n">args</span><span class="o">.</span><span class="n">selected_words</span> <span class="o">=</span> <span class="p">[</span>
@@ -13593,7 +13588,7 @@ optional arguments:
             <span class="s1">&#39;consectetur&#39;</span><span class="p">,</span> <span class="s1">&#39;adipiscing&#39;</span><span class="p">,</span> <span class="s1">&#39;elit&#39;</span><span class="p">,</span> <span class="s1">&#39;vestibulum&#39;</span><span class="p">,</span>
             <span class="s1">&#39;non&#39;</span><span class="p">,</span> <span class="s1">&#39;feugiat&#39;</span><span class="p">,</span> <span class="s1">&#39;felis&#39;</span><span class="p">]</span>
 
-    <span class="n">s</span><span class="o">.</span><span class="n">word_freq</span> <span class="o">=</span> <span class="n">WordFrequency</span><span class="p">(</span><span class="n">srwf</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-random-text-freq.txt&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">word_count</span><span class="p">)))</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">word_freq</span> <span class="o">=</span> <span class="n">WordFrequency</span><span class="p">(</span><span class="n">rflow</span><span class="o">.</span><span class="n">FSResource</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-random-text-freq.txt&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">word_count</span><span class="p">)))</span>
     <span class="n">s</span><span class="o">.</span><span class="n">word_freq</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">input_resource</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">random_text</span><span class="o">.</span><span class="n">resource</span>
 
     <span class="n">s</span><span class="o">.</span><span class="n">kmost_freq</span> <span class="o">=</span> <span class="n">PrintKMost</span><span class="p">()</span>
@@ -13620,11 +13615,11 @@ optional arguments:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp2_50</span> <span class="o">=</span> <span class="n">srwf</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="s1">&#39;exp2_50&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">exp2_100</span> <span class="o">=</span> <span class="n">srwf</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="s1">&#39;exp2_100&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp2_50</span> <span class="o">=</span> <span class="n">rflow</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="s1">&#39;exp2_50&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">exp2_100</span> <span class="o">=</span> <span class="n">rflow</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="s1">&#39;exp2_100&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">_sub_graph</span><span class="p">(</span><span class="n">exp2_50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="n">_sub_graph</span><span class="p">(</span><span class="n">exp2_100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -13637,10 +13632,10 @@ optional arguments:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">graphviz</span><span class="o">.</span><span class="n">Source</span><span class="p">(</span><span class="n">viz</span><span class="o">.</span><span class="n">dag2dot</span><span class="p">(</span><span class="n">exp2_50</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">viz</span><span class="o">.</span><span class="n">dag2dot</span><span class="p">(</span><span class="n">exp2_50</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13653,7 +13648,7 @@ optional arguments:
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[43]:</div>
+<div class="prompt output_prompt">Out[42]:</div>
 
 
 
@@ -13766,10 +13761,10 @@ optional arguments:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">graphviz</span><span class="o">.</span><span class="n">Source</span><span class="p">(</span><span class="n">viz</span><span class="o">.</span><span class="n">dag2dot</span><span class="p">(</span><span class="n">exp2_100</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">viz</span><span class="o">.</span><span class="n">dag2dot</span><span class="p">(</span><span class="n">exp2_100</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13782,7 +13777,7 @@ optional arguments:
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[44]:</div>
+<div class="prompt output_prompt">Out[43]:</div>
 
 
 
@@ -13905,14 +13900,14 @@ optional arguments:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp2_50_100</span> <span class="o">=</span> <span class="n">srwf</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="s1">&#39;exp2_50_100&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exp2_50_100</span> <span class="o">=</span> <span class="n">rflow</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="s1">&#39;exp2_50_100&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">_sub_graph</span><span class="p">(</span><span class="n">exp2_50_100</span><span class="o">.</span><span class="n">prefix</span><span class="p">(</span><span class="s1">&#39;n50&#39;</span><span class="p">),</span> <span class="mi">50</span><span class="p">)</span>
 <span class="n">_sub_graph</span><span class="p">(</span><span class="n">exp2_50_100</span><span class="o">.</span><span class="n">prefix</span><span class="p">(</span><span class="s1">&#39;n100&#39;</span><span class="p">),</span> <span class="mi">50</span><span class="p">)</span>
-<span class="n">graphviz</span><span class="o">.</span><span class="n">Source</span><span class="p">(</span><span class="n">viz</span><span class="o">.</span><span class="n">dag2dot</span><span class="p">(</span><span class="n">exp2_50_100</span><span class="p">))</span>
+<span class="n">viz</span><span class="o">.</span><span class="n">dag2dot</span><span class="p">(</span><span class="n">exp2_50_100</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13925,7 +13920,7 @@ optional arguments:
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[45]:</div>
+<div class="prompt output_prompt">Out[44]:</div>
 
 
 

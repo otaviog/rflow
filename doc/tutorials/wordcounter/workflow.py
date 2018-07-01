@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Experiment 'exp2' from Jupyter notebook tutorial.
+"""Experiment 'exp2' from the Jupyter notebook tutorial.
 """
 # pylint: disable=invalid-name,no-self-use
 
@@ -25,6 +25,7 @@ def compute_word_freq(input_filepath):
     with open(input_filepath, 'r') as stream:
         for line in stream:
             for word in line.split():
+                word = word.lower()
                 word_freq[word] = word_freq.get(word, 0) + 1
 
     return word_freq

@@ -277,6 +277,7 @@ class Node(BaseNode):
                 self.save_measurement({})
                 if self._resource is not None and not self._resource.rewritable:
                     self._resource.erase()
+                ui.executing_run(self)
                 self.value = self.evaluate_func(*call_arg_values)
             except Exception as exp:
                 ui.print_traceback(sys.exc_info(), exp)

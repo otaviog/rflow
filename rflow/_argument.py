@@ -13,6 +13,7 @@ import lmdb
 from .common import Uninit, WorkflowError, BaseNode
 from .resource import Resource
 from ._util import is_eq_override
+from ._ui import ui
 
 _LAMBDA_NAME = (lambda x: x).__name__
 
@@ -63,6 +64,7 @@ class ArgNamespace:
 
     def __setattr__(self, name, value):
         if name not in self.__dict__:
+            # ui.print_traceback(
             raise WorkflowError(
                 'Variable `{}` not contained on this node'.format(name))
 

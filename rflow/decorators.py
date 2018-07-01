@@ -36,6 +36,6 @@ class graph:
                 try:
                     return func(gph)
                 except Exception as ex:
-                    ui.print_traceback(sys.exc_info(), ex)
+                    ui.print_traceback(sys.exc_info(), ex, 1)
                     sys.exit(1)
         return _wrapped

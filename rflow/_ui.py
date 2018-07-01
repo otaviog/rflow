@@ -1,9 +1,12 @@
 """Basic Shell UI
 """
+
 import sys
 import traceback
 
 from termcolor import colored
+
+from ._reflection import is_frame_on_rflow
 
 
 def _sys_exit(_):
@@ -20,6 +23,12 @@ END_SYMBOL = "^"
 
 class ShellIO:
     """Workflow input/output interface for command-line output.
+
+    Attributes:
+
+        complete_traceback (bool): `True` enables full trace printing
+         instead of the default that omits rflow module. Use for debugging.
+
     """
 
     def __init__(self):
@@ -30,6 +39,7 @@ class ShellIO:
                               "blue", "magenta", "cyan", "white", "grey"]
         self._color_count = 0
         self._traceback_policy = None
+        self.complete_traceback = False
         self.set_traceback_policy()
 
     def set_traceback_policy(self, policy="sys-exit"):
@@ -73,7 +83,7 @@ class ShellIO:
         self._out.write(BAR_SYMBOL * self.call_depth)
         self._out.flush()
         self._out.write(
-            colored("RUN  {}:{}\n".format(node.graph.name, node.name), color))
+            colored("UPDATE  {}:{}\n".format(node.graph.name, node.name), color))
         self._out.flush()
         self.call_depth += 1
 
@@ -90,6 +100,17 @@ class ShellIO:
             "{}:{}\n".format(node.graph.name, node.name),
             color))
         self._out.flush()
+
+    def executing_run(self, node):
+        """Shows evaluation execution info.
+        """
+        color = self._get_new_color()
+        self._out.write(BAR_SYMBOL * self.call_depth)
+        self._out.flush()
+        self._out.write(
+            colored("RUN  {}:{}\n".format(node.graph.name, node.name), color))
+        self._out.flush()
+        self.call_depth += 1
 
     def executing_load(self, node):
         """Shows load execution info.
@@ -144,12 +165,32 @@ class ShellIO:
 
     def print_traceback(self, exec_info, exp, cnt=1):
         """Prints an error traceback. It will call the traceback policy. See
-        :func:`set_traceback_policy`"""
+        :func:`set_traceback_policy`
+
+        """
 
         extracts = traceback.extract_tb(exec_info[2])
-        count = len(extracts)
-        traceback.print_exc(limit=-count + cnt)
+
+        if self.complete_traceback:
+            count = len(extracts)
+            traceback.print_exc(limit=-count + cnt)
+            self._traceback_policy(exp)
+            return None
+
+        extracts = [ext for ext in extracts if not is_frame_on_rflow(ext)]
+        tb_prints = traceback.format_list(extracts)
+        sys.stdout.write("Traceback (most recent call last):\n")
+        for tb_print in tb_prints:
+            sys.stdout.write(tb_print)
+        sys.stdout.write("{}.{}: {}".format(
+            exp.__class__.__module__,
+            exp.__class__.__name__,
+            str(exp)))
+        sys.stdout.write('\n')
+
         self._traceback_policy(exp)
+
+        return None
 
 
 ui = ShellIO()

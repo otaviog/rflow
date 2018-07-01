@@ -13,7 +13,7 @@ from . import core
 from . common import WorkflowError, WORKFLOW_DEFAULT_FILENAME
 from . import decorators
 from . userargument import USER_ARGS_CONTEXT
-
+from . _ui import ui
 from . import _util as util
 
 
@@ -261,12 +261,14 @@ def main(argv=None):
     arg_parser.add_argument(
         'graph', choices=[graph.name for graph in all_graphs])
     arg_parser.add_argument('action', choices=ACTIONS)
-
     argcomplete.autocomplete(arg_parser)
     if not argv:
         argv = sys.argv
 
     args = arg_parser.parse_args(argv[1:3])
+
+    if int(os.environ.get("RFLOW_DEBUG", 0)) == 1:
+        ui.complete_traceback = True
 
     abs_path = os.path.abspath('.')
     graph = open_graph(abs_path, args.graph)
