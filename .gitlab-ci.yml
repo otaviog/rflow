@@ -26,7 +26,10 @@ pages:
     - cp -r doc/build/html public
     - touch doc/tutorials/wordcounter/tutorial.ipynb
     - make -C doc/tutorials/wordcounter tutorial.html
-    - cp doc/tutorials/wordcounter/tutorial.html public/
+    - mkdir public/wordcounter
+    - cp doc/tutorials/wordcounter/tutorial.html public/wordcounter
+    - cp doc/tutorials/wordcounter/big-text.txt public/wordcounter
+    - cp doc/tutorials/wordcounter/workflow.py public/wordcounter
   artifacts:
     paths:
       - public

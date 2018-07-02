@@ -64,7 +64,7 @@ def mnist(g):
 For more information see the following links:
 
 * [Workflow
-  tutorial](https://shrkit.gitlab.io/rflow/tutorial.html)
+  tutorial](https://shrkit.gitlab.io/rflow/wordcounter/tutorial.html)
 * [Reference
   documentation](https://shrkit.gitlab.io/rflow)
 * [Sample MNIST character
