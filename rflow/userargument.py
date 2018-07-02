@@ -107,3 +107,6 @@ class UserArgument(core.BaseNode):
 
     def get_resource(self):
         return None
+
+    def get_edges(self):
+        return []
