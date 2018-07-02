@@ -3,8 +3,7 @@ about-tasks:
 
 doc-create:
 	rm -f doc/source/rflow.*.rst
-	sphinx-apidoc -o doc/source/ rflow
-	rm doc/source/modules.rst doc/source/rflow.rst
+	sphinx-apidoc -o doc/source rflow
 	make -C doc/ html
 
 doc-open:
