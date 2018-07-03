@@ -43,6 +43,11 @@ class BaseNodeLink(BaseNode):
 
         return self._node.name
 
+    def get_edges(self):
+        return []
+
+    def non_collateral(self):
+        return []
 
 class ReturnSelNodeLink(BaseNodeLink):
     """Utility node type for selecting value from call methods that
