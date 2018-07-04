@@ -1,16 +1,17 @@
-.. RFlow documentation master file, created by
-   sphinx-quickstart on Sun Dec 18 03:24:07 2016.
+.. Rflow documentation master file, created by
+   sphinx-quickstart on Mon Jul  2 12:34:44 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to RFlow Reference!
-===================================================
+Welcome to Rflow's API documentation!
+=====================================
 
+Checkout the `tutorial
+<https://shrkit.gitlab.io/rflow/wordcounter/tutorial.html>`_.
 
-rflow Package
-----------------------
+API Reference:
 
-.. automodule:: rflow
-    :members:
-    :undoc-members:
-    :show-inheritance:
+.. toctree::
+   :maxdepth: 4
+
+   rflow

@@ -1,6 +1,7 @@
 Sphinx
 sphinx_theme
 sphinxcontrib-napoleon
+apidoc
 pylint
 docutils
 jupyter
