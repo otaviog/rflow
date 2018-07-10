@@ -43,6 +43,9 @@ class BaseNodeLink(BaseNode):
 
         return self._node.name
 
+    def get_edges(self):
+        return []
+
 
 class ReturnSelNodeLink(BaseNodeLink):
     """Utility node type for selecting value from call methods that
@@ -145,9 +148,7 @@ class Node(BaseNode):
 
     def fail(self, message):
         ui.error_ocurred(self, message)
-        if self.erase_resource_on_fail:
-            if self._resource is not None:
-                self._resource.erase()
+        self._asure_erase_res_on_fail()
         sys.exit(0)
 
     def non_collateral(self):
@@ -281,6 +282,7 @@ class Node(BaseNode):
                 self.value = self.evaluate_func(*call_arg_values)
             except Exception as exp:
                 ui.print_traceback(sys.exc_info(), exp)
+                self._asure_erase_res_on_fail()
 
         ui.done_evaluate(self)
         self._update_signature(call_arg_values)
@@ -352,6 +354,11 @@ class Node(BaseNode):
     def _get_previous_signature(self):
         return self.graph.args_context.get_argsignature(
             self.graph.name, self.name)
+
+    def _asure_erase_res_on_fail(self):
+        if self.erase_resource_on_fail:
+            if self._resource is not None:
+                self._resource.erase()
 
     def save_measurement(self, meas_dict):
         self.graph.args_context.set_measurement(
