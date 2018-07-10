@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Rflow (or Reentrant Flow) project is Python framework for creating
+The Rflow (or Research Flow) project is Python framework for creating
 Directed Acyclic Graph (DAG) workflows. Our goal is to aid developers
 in developing end-to-end stages of data preprocessing, model fitting
 and evaluation with less boilerplate code. Making reproducible
@@ -61,20 +61,20 @@ def mnist(g):
 
 ```
 
-For more information see the following links:
+More information:
 
-* [Workflow
-  tutorial](https://shrkit.gitlab.io/rflow/wordcounter/tutorial.html)
+* [Tutorial](https://shrkit.gitlab.io/rflow/wordcounter/tutorial.html)
 * [Reference
   documentation](https://shrkit.gitlab.io/rflow)
 * [Sample MNIST character
   retrieval](https://gitlab.com/shrkit/shape-retrieval-toolkit/tree/master/experiments/mnist)
-* [Multiview Deep Neural Net
-  Experiment](https://gitlab.com/shrkit/multiview-dnn)
-* [Retrieval using spectral Descriptors
-  Experiment](https://gitlab.com/shrkit/spectral-retrieval)
+* [Spectral descriptors 3D shape retrieval
+  experiments](https://gitlab.com/shrkit/spectral-retrieval)  
+* [Multiview 3D shape retrieval
+  experiments](https://gitlab.com/shrkit/multiview-dnn)
 
-This project is still under development.
+This project is under development, but should be usable for small
+projects.
 
 ## Getting Started
 
@@ -87,6 +87,52 @@ $ sudo apt install git python3-venv python3-pip graphviz
 
 For development setup, please refer to the [CONTRIBUTING
 guide](CONTRIBUTING.md).
+
+Create your first workflow:
+
+```python
+import rflow
+
+class CreateMessage(rflow.Interface):
+    def evaluate(self, msg):
+        return msg
+
+class Print(rflow.Interface):
+    def evaluate(self, msg):
+        print(msg)
+
+@rflow.graph()
+def hello(g):
+    g.create = CreateMessage()
+    g.create.args.msg = "Hello"
+
+    g.print = Print()
+    g.print.args.msg = g.create
+
+if __name__ == '__main__':
+    rflow.command.main()
+```
+
+Save it as workflow.py and run with `rflow` command:
+
+```shell
+$ rflow hello run print
+UPDATE  hello:print
+.UPDATE  hello:create
+.RUN  hello:create
+.^hello:create
+RUN  hello:print
+Hello
+^hello:print
+```
+
+Use the command `viz-dag` to visualizate the DAG:
+
+```shell
+$ rflow hello viz-dag
+```
+
+![](doc/hello/hello.gv.png)
 
 ## Similar Projects 
 

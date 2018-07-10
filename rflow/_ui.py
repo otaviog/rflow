@@ -76,6 +76,9 @@ class ShellIO:
 
         return color
 
+    def _curr_color(self):
+        return self._color_stack[-1]
+    
     def executing_evaluate(self, node):
         """Shows evaluation execution info.
         """
@@ -91,7 +94,7 @@ class ShellIO:
         """Shows evaluation done info.
         """
 
-        self.call_depth -= 1
+        # self.call_depth -= 1
         color = self._pop_color()
 
         self._out.write(BAR_SYMBOL * self.call_depth)
@@ -104,13 +107,13 @@ class ShellIO:
     def executing_run(self, node):
         """Shows evaluation execution info.
         """
-        color = self._get_new_color()
+        self.call_depth -= 1
+        color = self._curr_color()
         self._out.write(BAR_SYMBOL * self.call_depth)
         self._out.flush()
         self._out.write(
             colored("RUN  {}:{}\n".format(node.graph.name, node.name), color))
         self._out.flush()
-        self.call_depth += 1
 
     def executing_load(self, node):
         """Shows load execution info.
@@ -194,3 +197,4 @@ class ShellIO:
 
 
 ui = ShellIO()
+
