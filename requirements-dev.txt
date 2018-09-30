@@ -4,5 +4,6 @@ sphinxcontrib-napoleon
 apidoc
 pylint
 docutils
+ipykernel==4.8.0
 jupyter
 autopep8

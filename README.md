@@ -85,6 +85,12 @@ Python 3. The required environment packages (Ubuntu):
 $ sudo apt install git python3-venv python3-pip graphviz
 ```
 
+Grab using pip:
+
+```shell
+$ pip install git+https://github.com/otaviog/rflow
+```
+
 For development setup, please refer to the [CONTRIBUTING
 guide](CONTRIBUTING.md).
 
