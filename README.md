@@ -63,9 +63,9 @@ def mnist(g):
 
 More information:
 
-* [Tutorial](https://shrkit.gitlab.io/rflow/wordcounter/tutorial.html)
+* [Tutorial](https://otaviog.gitlab.io/rflow/wordcounter/tutorial.html)
 * [Reference
-  documentation](https://shrkit.gitlab.io/rflow)
+  documentation](https://otaviog.gitlab.io/rflow)
 * [Sample MNIST character
   retrieval](https://gitlab.com/shrkit/shape-retrieval-toolkit/tree/master/experiments/mnist)
 * [Spectral descriptors 3D shape retrieval

@@ -49,7 +49,7 @@ setup(
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 2.7'
+        'Programming Language :: Python :: 3.5'
     ],
     keywords='end-to-end workflow reentrant make machine-learning ',
     packages=find_packages(),
