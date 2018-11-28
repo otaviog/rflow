@@ -1,5 +1,8 @@
 # RFlow - A workflow framework for end-to-end research
 
+[![pipeline
+status](https://gitlab.com/otaviog/rflow/badges/master/pipeline.svg)](https://gitlab.com/otaviog/rflow/commits/master)
+
 ## Introduction
 
 The Rflow (or Research Flow) project is Python framework for creating
@@ -11,7 +14,7 @@ communities.
 
 The image below shows the graph visualization of a [MNIST autoencoder
 retrieval
-experiment](https://gitlab.com/shrkit/shape-retrieval-toolkit/tree/master/experiments/mnist). Rflow
+experiment](https://github.com/otaviog/shape-retrieval-kit/tree/master/experiments/mnist). Rflow
 managed the connections of user's code, from dataset parsing to
 autoencoder training, evaluation, and empirical test.
 
@@ -67,11 +70,11 @@ More information:
 * [Reference
   documentation](https://otaviog.gitlab.io/rflow)
 * [Sample MNIST character
-  retrieval](https://gitlab.com/shrkit/shape-retrieval-toolkit/tree/master/experiments/mnist)
+  retrieval](https://github.com/otaviog/shape-retrieval-kit/tree/master/experiments/mnist)
 * [Spectral descriptors 3D shape retrieval
-  experiments](https://gitlab.com/shrkit/spectral-retrieval)  
+  experiments](https://github.com/otaviog/spectral-3d-retrieval)  
 * [Multiview 3D shape retrieval
-  experiments](https://gitlab.com/shrkit/multiview-dnn)
+  experiments](https://github.com/otaviog/multiview-dnn)
 
 This project is under development, but should be usable for small
 projects.
@@ -139,11 +142,3 @@ $ rflow hello viz-dag
 ```
 
 ![](doc/hello/hello.gv.png)
-
-## Similar Projects 
-
-* [Luigi](https://github.com/spotify/luigi) - Spotify's workflow tool.
-* [Airflow](https://airflow.apache.org/) - Apache's workflow tool.
-* [Weka](http://www.cs.waikato.ac.nz/ml/weka/) - Machine learning workflow and toolkit.
-* [Microsoft Asure for Machine Learning](https://studio.azureml.net) -
-  A GUI workflow for machine learning pipelines.
