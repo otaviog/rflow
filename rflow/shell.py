@@ -44,6 +44,8 @@ class Shell(Interface):
 
         exit_code = 0
         for command in commands:
+            if isinstance(command, list):
+                command = " ".join(command)
             exit_code = os.system(command)
             if exit_code != 0:
                 self.fail(
