@@ -19,6 +19,8 @@ _LAMBDA_NAME = (lambda x: x).__name__
 
 
 def _can_object_be_graph_argument(obj):
+    if obj is None:
+        return True
     if isinstance(obj, (BaseNode, Resource, int, bool, float, str,
                         Enum, type)):
         return True
