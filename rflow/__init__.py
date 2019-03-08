@@ -9,4 +9,4 @@ from .resource import FSResource, MultiResource, NilResource
 from . import shell
 from .command import open_graph
 from .userargument import UserArgument
-from .interface import Interface, VarNode
+from .interface import Interface, VarNode, make_node
