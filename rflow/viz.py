@@ -81,7 +81,7 @@ def dag2dot(graph):
     dot = graphviz.Digraph(graph.name, format='png')
     link_id_gen = _LinkIDGen()
 
-    outgraph_nodes = []
+    outgraph_nodes = set()
 
     def _put_measurement(node, link_id_gen=link_id_gen):
         if not isinstance(node, Node):
@@ -108,7 +108,7 @@ def dag2dot(graph):
                 edge_id = edge.name
                 edge_graph = edge.__dict__.get("graph", None)
                 if edge_graph and edge_graph != graph:
-                    outgraph_nodes.append(edge)
+                    outgraph_nodes.add(edge)
 
                 if isinstance(edgename, DependencyLink):
                     label = ""

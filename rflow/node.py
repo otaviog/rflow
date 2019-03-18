@@ -230,7 +230,10 @@ class Node(BaseNode):
                 continue
 
             if not isinstance(edge, BaseNode):
-                signature[edgename] = edge
+                if hasattr(edge, 'get_signature'):
+                    signature[edgename] = edge.get_signature()
+                else:
+                    signature[edgename] = edge
                 continue
 
             edge.update()
@@ -327,7 +330,10 @@ class Node(BaseNode):
             if edgename in non_collateral:
                 continue
             if not isinstance(edge, BaseNode):
-                new_signature[edgename] = call_arg_values[i]
+                if hasattr(edge, "get_signature"):
+                    new_signature[edgename] = edge.get_signature()
+                else:
+                    new_signature[edgename] = call_arg_values[i]
                 continue
 
             if edge.get_resource() is not None:
