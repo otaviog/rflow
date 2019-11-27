@@ -178,6 +178,8 @@ class ArgumentSignatureDB:
                 except AttributeError:
                     return {}  # ignore attribute errors and return as
                     # empty dict.
+                except ModuleNotFoundError:
+                    return {}
         return {}
 
     def update_argsignature(self, graph_id, node_id, arg_sig):

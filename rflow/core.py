@@ -43,6 +43,10 @@ class Subgraph:
         else:
             super(Subgraph, self).__setattr__(name, value)
 
+    @property
+    def name(self):
+        return self.graph.name
+
 
 class Graph:
     """A workflow DAG. Nodes are added by setting as new instance
