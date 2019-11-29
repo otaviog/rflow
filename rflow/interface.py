@@ -7,7 +7,7 @@ from ._reflection import hasmethod
 
 
 class Interface(Node):
-    def __init__(self, resource=None):
+    def __init__(self, resource=None, show=True):
         evaluate_argspec = inspect.getfullargspec(self.evaluate)
         if 'self' in evaluate_argspec.args:
             evaluate_argspec.args.remove('self')
@@ -38,6 +38,7 @@ class Interface(Node):
         if resource is not None:
             self.resource = resource
 
+        self.show = show
 
 class VarNode(Interface):
     def __init__(self, obj):

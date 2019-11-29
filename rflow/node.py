@@ -5,7 +5,7 @@ import sys
 
 from . common import WorkflowError, Uninit, BaseNode
 from . _argument import get_sig_difference
-from . resource import Resource
+from . resource import Resource, MultiResource
 from ._ui import ui
 from . import _util as util
 
@@ -88,6 +88,12 @@ class ResourceNodeLink(BaseNodeLink):
     def call(self):
         self._node.call()
         return self._resource
+
+    def __getitem__(self, idx):
+        if not isinstance(self._resource, MultiResource):
+            raise WorkflowError(
+                "Resource {} is not a multi resource for indexing".format(self._resource))
+        return ResourceNodeLink(self._node, self._resource[idx])
 
 
 class DependencyLink(object):
