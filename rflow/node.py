@@ -343,7 +343,7 @@ class Node(BaseNode):
         if self.load_func is not None:
             if self._resource is None:
                 raise WorkflowError(
-                    '{} has load method but without resource'.format(
+                    '{} load method does not have a `resource` argument'.format(
                         self.name), self.instanciation_lineinfo)
             with util.work_directory(self.graph.work_directory):
                 return self._resource.exists()

@@ -27,7 +27,7 @@ def _importdir(path, workflow_fname):
         raise WorkflowError('Workflow {} file not found'.format(fname))
 
     try:
-        return imp.load_source('foo', fname)
+        return imp.load_source('workflow', fname)
     except IOError:
         raise WorkflowError('Workflow {} file not found'.format(fname))
 
