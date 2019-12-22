@@ -12,9 +12,9 @@ and evaluation with less boilerplate code. Making reproducible
 research easier for the Information Retrieval and Machine Learning
 communities.
 
-The image below shows the graph visualization of a [MNIST autoencoder
+The image below shows the graph visualization of a MNIST autoencoder
 retrieval
-experiment](https://github.com/otaviog/shape-retrieval-kit/tree/master/experiments/mnist). Rflow
+experiment. Rflow
 managed the connections of user's code, from dataset parsing to
 autoencoder training, evaluation, and empirical test.
 
@@ -69,12 +69,6 @@ More information:
 * [Tutorial](https://otaviog.gitlab.io/rflow/wordcounter/tutorial.html)
 * [Reference
   documentation](https://otaviog.gitlab.io/rflow)
-* [Sample MNIST character
-  retrieval](https://github.com/otaviog/shape-retrieval-kit/tree/master/experiments/mnist)
-* [Spectral descriptors 3D shape retrieval
-  experiments](https://github.com/otaviog/spectral-3d-retrieval)  
-* [Multiview 3D shape retrieval
-  experiments](https://github.com/otaviog/multiview-dnn)
 
 This project is under development, but should be usable for small
 projects.
