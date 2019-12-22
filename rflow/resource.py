@@ -4,6 +4,8 @@ training models.
 """
 
 import os
+from pathlib import Path
+
 try:
     import cPickle as pickle
 except:
@@ -34,10 +36,11 @@ class FSResource(Resource):
         filepath (str): The file path.
     """
 
-    def __init__(self, filepath, rewritable=True):
+    def __init__(self, filepath, rewritable=True, make_dirs=False):
         super(FSResource, self).__init__(rewritable)
         self.filepath = os.path.abspath(str(filepath))
         self._str = str(filepath)
+        self.make_dirs = make_dirs
 
     def exists(self):
         """
@@ -63,6 +66,9 @@ class FSResource(Resource):
         return None
 
     def pickle_dump(self, obj):
+        if self.make_dirs:
+            Path(self.filepath).parent.mkdir(parents=True, exist_ok=True)
+
         with open(self.filepath, 'wb') as stream:
             pickle.dump(obj, stream, pickle.HIGHEST_PROTOCOL)
         return obj

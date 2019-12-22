@@ -40,6 +40,7 @@ class Interface(Node):
 
         self.show = show
 
+
 class VarNode(Interface):
     def __init__(self, obj):
         super(VarNode, self).__init__()
@@ -79,3 +80,21 @@ def make_node(func, load_func=None):
                                            func, args, load_func,
                                            load_arg_list)
     return FuncNode()
+
+
+def make_factory(class_type, **kwargs):
+    class FactoryNode(Node):
+        def __init__(self):
+            evaluate_argspec = inspect.getfullargspec(class_type)
+            if 'self' in evaluate_argspec.args:
+                evaluate_argspec.args.remove('self')
+
+            arg_ns = ArgNamespace(evaluate_argspec.args, kwargs)
+
+            super().__init__(None,
+                             class_type.__name__,
+                             class_type, arg_ns)
+
+    node = FactoryNode()
+    node.show = False
+    return node

@@ -25,7 +25,7 @@ class Subgraph:
 
     def __init__(self, graph, prefix):
         self.graph = graph
-        self.prefix = prefix
+        self._prefix = prefix
 
     def __enter__(self):
         return self
@@ -36,12 +36,21 @@ class Subgraph:
     def __setattr__(self, name, value):
         if isinstance(value, BaseNode):
             self.__dict__[name] = value
-            if self.prefix is None:
+            if self._prefix is None:
                 self.graph.__setattr__(name, value)
                 return
-            self.graph.__setattr__('{}{}'.format(self.prefix, name), value)
+            self.graph.__setattr__('{}{}'.format(self._prefix, name), value)
         else:
-            super(Subgraph, self).__setattr__(name, value)
+            super().__setattr__(name, value)
+
+    def __getattr__(self, name):
+        if name in self.__dict__:
+            return self.__dict__[name]
+        else:
+            return self.graph.__getattribute__(self._prefix + name)
+
+    def prefix(self, prefix):
+        return self.graph.prefix(self._prefix + prefix)
 
     @property
     def name(self):
