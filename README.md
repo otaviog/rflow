@@ -103,6 +103,7 @@ Where `test` is the node's name. It's possible to specify to run until any node.
 * [Tutorial](https://otaviog.gitlab.io/rflow/wordcounter/tutorial.html)
 * [Reference
   documentation](https://otaviog.gitlab.io/rflow)
+* [Plant Segmentation Experiments](https://github.com/otaviog/plant-segmentation) Sample workflow for training semantic segmentation networks
 
 Currently the project focus on workflows of prototype experiments,
 targeted into single machine users.
