@@ -359,7 +359,7 @@ class Node(BaseNode):
         for edgename, edge in self.get_edges(set(args)):
             if edge == Uninit:
                 raise WorkflowError(
-                    '{}: Variable {} was never set'.format(self.name, edgename))
+                    '{}: Variable `{}` was never set'.format(self.name, edgename))
 
     def _check_runnable(self):
         if self.graph is None:
