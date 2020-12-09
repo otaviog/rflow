@@ -130,9 +130,15 @@ def _run_main(graph, argv):
         help="Redo the last node, whatever even if it's updated",
         action='store_true')
 
+    name_set = set()
     for name, kwargs in (
             USER_ARGS_CONTEXT.user_arguments):
+        # TODO compare if they're exact the same or
+        # raise an exception.
+        if name in name_set:
+            continue
         arg_parser.add_argument(name, **kwargs)
+        name_set.add(name)
 
     args = arg_parser.parse_args(argv)
 
