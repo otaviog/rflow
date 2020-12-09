@@ -11,3 +11,6 @@ def main():
     """rflow Main entry point.
     """
     return command.main()
+
+if __name__ == "__main__":
+    main()
